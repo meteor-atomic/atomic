@@ -1,0 +1,24 @@
+template(name="BlogPostView")
+  div.ui.grid
+
+    //- Blog article
+    div.eleven.wide.column
+      +with post
+        h2=title
+        div(class="ui attached segment")
+          img(src="http://graio.com/templates/band/images/assets/blog/post.jpg")
+
+        div(class="ui bottom attached segment")
+          i(class="star yellow large icon")
+          i(class="star yellow large icon")
+          i(class="star yellow large icon")
+          i(class="star yellow large icon")
+          i(class="star large icon")
+
+        div(class="ui basic segment")
+          h3=title
+
+          +markdown
+            #{content}
+    //- Sidebar
+    div.five.wide.column

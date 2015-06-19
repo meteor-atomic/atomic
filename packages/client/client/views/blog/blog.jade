@@ -1,0 +1,53 @@
+template(name="BlogView")
+  div.ui.grid
+
+    //- Blog summaries
+    div.eleven.wide.column
+      div(class="ui divided items")
+        each posts
+          div.item
+            div.image
+              a(class="ui left yellow corner label")
+                i(class="heart icon")
+              img(src="http://graio.com/templates/band/images/assets/blog/blog1.jpg")
+            div.content
+              a(href=link class="header") #{title}
+              div.description
+                +markdown
+                  #{summary}
+              div.extra
+                a(class="ui right floated primary button", href=link) Read More
+                  i(class="right chevron icon")
+
+                div(class="ui horizontal label")
+                  i.user.icon
+                  | #{category}
+
+                div(class="ui horizontal label")
+                  i.user.icon
+                  | #{creator}
+
+                div(class="ui horizontal label")
+                  i.time.icon
+                  | #{updatedAt}
+
+    //- Right sidebar
+    div.five.wide.column
+      div.sidebar
+
+        //- Search Bar
+        div(class="ui fluid icon input")
+          input(type="text", placeholder="Search Article...")
+          i.search.icon
+
+        //- Categories
+        div(class="ui divided animated list segment")
+          h4
+            i(class="grid layout icon")
+            | Categories
+
+          +each categories
+            div(class="item", style="padding-bottom: 10px")
+              i(class="angle right icon large")
+              div.content
+                a(class="header", href=category_link) #{name}
