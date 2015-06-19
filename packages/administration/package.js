@@ -24,14 +24,17 @@ Package.onUse(function(api) {
 
   var UIFiles = [
     // Router and core files
-    "client/router.js",
-    "client/head.jade",
+    "admin/router.js",
 
-    "client/layouts/default.jade",
+    // Layouts
+    "admin/layouts/default.jade",
+
+    // Sections
+    "admin/sections/header/header.jade",
 
     // Index
-    "client/views/index/index.jade",
-    "client/views/index/route.js"
+    "admin/views/index/index.jade",
+    "admin/views/index/route.js"
   ];
 
   UIFiles.forEach(function(file){

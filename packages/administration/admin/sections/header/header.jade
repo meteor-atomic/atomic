@@ -1,0 +1,12 @@
+template(name="AdminHeaderSection")
+	nav(class="ui large menu navbar grid")
+		a(href="{{pathFor 'index'}}", class="brand item")
+			i(class="home outline icon")
+			| Home
+		div(class="right menu")
+			div(class="item")
+				unless currentUser
+					a(href="#", class="ui primary button", login) Sign In / Register
+				else
+					//- +avatar(user=currentUser shape="rounded" size="extra-small")
+					a(href="#", class="ui primary button", logout) Logout

@@ -6,7 +6,7 @@ AdminRouter.route("/", {
      * Index route id
      * @type {String}
      */
-    name: "index",
+    name: "admin.index",
 
     /**
      * When the route is activated
@@ -15,6 +15,8 @@ AdminRouter.route("/", {
      * @return {void}
      */
     action: function(params, queryParams) {
-    	console.log("hello from admin");
+        FlowLayout.render("AdminDefaultLayout", {
+            view: "AdminIndexView"
+        });
     }
 })

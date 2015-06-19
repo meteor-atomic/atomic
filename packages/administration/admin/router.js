@@ -5,5 +5,10 @@
  * @todo admin subscriptions
  */
 AdminRouter = FlowRouter.group({
-	prefix: "/administration"
+
+	/**
+	 * @todo Make this configurable
+	 * @type {String}
+	 */
+	prefix: "/admin"
 });
