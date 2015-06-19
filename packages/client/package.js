@@ -14,8 +14,10 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   // Internal
+  api.use("blog:accounts");
   api.use("blog:categories");
   api.use("blog:posts");
+  api.use("blog:i18n", ["client", "server"]);
 
   // Templating
   api.use("templating", "client");
@@ -33,13 +35,21 @@ Package.onUse(function(api) {
   api.use("mrt:moment");
 
   var UIFiles = [
+    "en.i18n.json",
     "client/head.html",
     "client/helpers.js",
 
+    // Layouts
     "client/layouts/default.jade",
     "client/layouts/default.css",
+
+    // Sections
     "client/sections/header/header.jade",
     "client/sections/header/header.js",
+
+    // Components
+    "client/components/comments/comments.jade",
+    "client/components/breadcrumbs/breadcrumbs.jade",
 
     // Index
     "client/views/index/route.js",

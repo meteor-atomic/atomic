@@ -1,0 +1,9 @@
+{
+	"home" 				: "Home",
+	"blog" 				: "Blog",
+	"read_more"		: "Read More",
+	"categories"	: "Categories",
+	"logout" 			: "Logut",
+	"sign_in" 		: "Sign In",
+	"search" 			: "Search"
+}

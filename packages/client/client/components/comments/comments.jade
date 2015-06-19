@@ -1,0 +1,54 @@
+template(name="CommentsComponent")
+  .ui.minimal.comments
+    h3.ui.dividing.header Comments
+    .comment
+      a.avatar
+        img(src="http://semantic-ui.com/images/avatar/small/matt.jpg")
+      .content
+        a.author Matt
+        .metadata
+          span.date Today at 5:42PM
+        .text
+          | How artistic!
+        .actions
+          a.reply Reply
+    .comment
+      a.avatar
+        img(src="http://semantic-ui.com//images/avatar/small/elliot.jpg")
+      .content
+        a.author Elliot Fu
+        .metadata
+          span.date Yesterday at 12:30AM
+        .text
+          p This has been very useful for my research. Thanks as well!
+        .actions
+          a.reply Reply
+      .comments
+        .comment
+          a.avatar
+            img(src="http://semantic-ui.com//images/avatar/small/jenny.jpg")
+          .content
+            a.author Jenny Hess
+            .metadata
+              span.date Just now
+            .text
+              | Elliot you are always so right :)
+            .actions
+              a.reply Reply
+    .comment
+      a.avatar
+        img(src="http://semantic-ui.com//images/avatar/small/joe.jpg")
+      .content
+        a.author Joe Henderson
+        .metadata
+          span.date 5 days ago
+        .text
+          | Dude, this is awesome. Thanks so much
+        .actions
+          a.reply Reply
+    form.ui.reply.form
+      .field
+        textarea
+      .ui.blue.labeled.submit.icon.button
+        i.icon.edit
+        | Add Reply

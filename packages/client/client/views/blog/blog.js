@@ -42,7 +42,7 @@ Template.BlogView.helpers({
 	 * @todo Make this reactive
 	 * @return {String}
 	 */
-	updatedAt: function(){
+	updatedAt: function() {
 		return moment(this.updatedAt).fromNow();
 	},
 

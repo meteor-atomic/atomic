@@ -16,7 +16,7 @@ template(name="BlogView")
                 +markdown
                   #{summary}
               div.extra
-                a(class="ui right floated primary button", href=link) Read More
+                a(class="ui right floated primary button", href=link) {{_ 'read_more'}}
                   i(class="right chevron icon")
 
                 div(class="ui horizontal label")
@@ -37,14 +37,14 @@ template(name="BlogView")
 
         //- Search Bar
         div(class="ui fluid icon input")
-          input(type="text", placeholder="Search Article...")
+          input(type="text", placeholder="{{_ 'search'}}...")
           i.search.icon
 
         //- Categories
         div(class="ui divided animated list segment")
           h4
             i(class="grid layout icon")
-            | Categories
+            | {{_ 'categories'}}
 
           +each categories
             div(class="item", style="padding-bottom: 10px")

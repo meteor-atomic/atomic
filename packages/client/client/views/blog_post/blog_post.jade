@@ -1,12 +1,16 @@
 template(name="BlogPostView")
-  div.ui.grid
+  div.ui.stackable.grid
 
     //- Blog article
     div.eleven.wide.column
       +with post
-        h2=title
         div(class="ui attached segment")
-          img(src="http://graio.com/templates/band/images/assets/blog/post.jpg")
+          h2=title
+          img(class="ui centered huge rounded image", src="http://graio.com/templates/band/images/assets/blog/post.jpg")
+
+          br
+          +markdown
+            #{content}
 
         div(class="ui bottom attached segment")
           i(class="star yellow large icon")
@@ -15,10 +19,58 @@ template(name="BlogPostView")
           i(class="star yellow large icon")
           i(class="star large icon")
 
-        div(class="ui basic segment")
-          h3=title
-
-          +markdown
-            #{content}
+        div(class="ui segment")
+          +CommentsComponent
     //- Sidebar
     div.five.wide.column
+      +with post
+        div.sidebar
+
+          //- Author information 
+          div.ui.segment
+            a.avatar.small
+              img(class="ui large rounded image", src="http://graio.com/templates/band/images/assets/avatar/stevie.jpg")
+            div.ui.devided.list.author
+              div.item
+                i.user.large.icon
+                | Display Name
+              div.item
+                i.large.map.marker.icon
+                | Location
+              div.item
+                i.large.time.icon
+                | Timestamp
+            .2.fluid.ui.buttons
+              .ui.green.button
+                i.user.icon
+                | Follow
+              .ui.blue.button
+                i.pencil.icon
+                | Repl
+
+          //- Share box
+          div.ui.segment
+            h4
+              i.retweet.icon
+              | Share Article
+            .2.fluid.ui.buttons
+              .ui.facebook.button
+                i.facebook.icon
+                | Facebook
+              .ui.twitter.button
+                i.twitter.icon
+                | Twitter
+            br
+            .ui.fluid.input
+              input(value="https://short.link/c0opop", type="text", onclick="this.select();")
+
+
+          //- Article Tags
+          div.ui.segment
+            h4
+              i.tag.icon
+              | Article Tags
+            .ui.blue.labels
+              a.ui.label Meteor
+              a.ui.label Email
+              a.ui.label NodeJS
