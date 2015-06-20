@@ -30,14 +30,22 @@ _.extend(Posts, {
     /**
      * Raw markdown content
      */
-    content: { type: String, label: "Main content block", optional: true },
+    content: { type: String, label: "Markdown version of the post", optional: true},
 
     /**
-     * @todo Auto convert markdown on save, this will allow
-     *       us to validate the post so we can assure it will
-     *       render ok.
+     * @todo 
      */
-    //html : {},
+    html : { type: String, label: "Html version of the post", optional: true, autoValue: function() {
+            var content = this.field("content");
+
+            /**
+             * @todo Add editor in here
+             */
+            if (content.isSet) {
+              return marked(content.value)
+            }
+        }
+    },
     
     /**
      * creator
@@ -124,10 +132,12 @@ _.extend(Posts, {
 Posts.collection.attachSchema(Posts.schema);
 
 /**
- * Publish the collection
+ * Publish the psots collection excluding the content,
+ * the content is raw markdown and is converted to the html
+ * key on save, so sending this over the wire is quite pointless.
  *
  * @todo Think about private, unpublsihed posts
  */
 Meteor.publish("posts", function() {
-  return Posts.collection.find({})
+  return Posts.collection.find({}, {fields: {content: 0}})
 })

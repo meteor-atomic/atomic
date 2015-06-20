@@ -12,12 +12,18 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.use("aldeed:collection2@2.3.3");
-  api.use("aldeed:simple-schema");
+
+  // Meteor Core
   api.use("underscore");
 
+  // Blog
   api.use("blog:utilities");
   api.use("blog:categories");
+
+  // Data based packages
+  api.use("aldeed:collection2@2.3.3");
+  api.use("aldeed:simple-schema");
+  api.use("chuangbo:marked@0.3.2");
 
   api.addFiles('posts.js',        ["server", "client"]);
   api.addFiles('posts_server.js', ["server"]);
