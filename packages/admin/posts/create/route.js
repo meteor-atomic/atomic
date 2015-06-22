@@ -9,18 +9,11 @@ AdminRouter.route("/posts/new", {
   name: "admin.posts.new",
 
   /**
-   * Susbscriptions
-   */
-  subscriptions: function(params, queryParams) {
-    this.register("posts", Posts.subscription({admin:true}));
-    this.register("categories", Categories.subscription());
-  },
-
-  /**
    */
   action: function(params, queryParams) {
-    FlowLayout.render("DefaultAdminLayout", {
-      view: "AdminPostCreateView"
-    });
+    /**
+     * Create a new draft and then transfer to edit mode
+     */
+    Router.go("admin.posts.edit", {id: Posts.draft()});
   }
 })

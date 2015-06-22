@@ -63,8 +63,6 @@ Package.onUse(function(api) {
   api.addFiles("posts/posts.jade",            "client");
   api.addFiles("posts/posts.js",              "client");
   api.addFiles("posts/route.js",              "client");
-  api.addFiles("posts/create/create.jade",    "client");
-  api.addFiles("posts/create/create.js",      "client");
   api.addFiles("posts/create/route.js",       "client");
   api.addFiles("posts/edit/edit.jade",        "client");
   api.addFiles("posts/edit/edit.js",          "client");
