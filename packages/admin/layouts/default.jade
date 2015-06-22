@@ -1,5 +1,7 @@
 template(name="DefaultAdminLayout")
+  //- Sidebar
   +AdminSidebarSection
-    //- add pusher for main content
-    main.pusher
-      +Template.dynamic(template=view)
+
+  //- add pusher for main content
+  main.admin.pusher
+    +Template.dynamic(template=view)

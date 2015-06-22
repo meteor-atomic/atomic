@@ -1,0 +1,25 @@
+template(name="AdminPostsView")
+  table(class="ui table")
+    thead
+      tr
+        th
+        th Title
+        th Author
+        th Published
+        th
+          i.comments.icon
+        th Date
+    tbody
+      +each posts
+        tr
+          td
+            input(type="checkbox")
+          td
+            a(href="{{pathFor 'blog.posts.view' id=this._id}}")=title
+          td Some Author here
+          td
+            i.large.green.checkmark.icon
+          td
+            .ui.blue.label 0
+          td #{date}
+    tfoot

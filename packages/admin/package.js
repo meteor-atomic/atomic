@@ -23,6 +23,7 @@ Package.onUse(function(api) {
   api.use("blog:posts",                       "client");
   api.use("blog:categories",                  "client");
   api.use("blog:users",                       "client");
+  api.use("blog:editor",                      "client");
 
   // Temporary until it's seperated and wrapped like
   // the Router is.
@@ -36,11 +37,21 @@ Package.onUse(function(api) {
 
   // Layout
   api.addFiles("layouts/default.jade",        "client");
+  api.addFiles("layouts/default.css",         "client");
 
   // Sections
-  api.addFiles("sections/sidebar/sidebar.jade","client");
+  api.addFiles("sections/sidebar/sidebar.jade", "client");
+  api.addFiles("sections/sidebar/sidebar.js",   "client");
 
   // Dashbaord
   api.addFiles("dashboard/dashboard.jade",    "client");
   api.addFiles("dashboard/route.js",          "client");
+
+  // Posts
+  api.addFiles("posts/posts.jade",            "client");
+  api.addFiles("posts/posts.js",              "client");
+  api.addFiles("posts/route.js",              "client");
+  api.addFiles("posts/create/create.jade",    "client");
+  api.addFiles("posts/create/create.js",      "client");
+  api.addFiles("posts/create/route.js",       "client");
 });

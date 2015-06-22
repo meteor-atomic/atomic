@@ -1,30 +1,32 @@
 template(name="AdminSidebarSection")
   div(class="ui large sidebar visible left vertical inverted labeled menu")
     //- Dashboard
-    a(class="item", href="#") Dashbaord
+    a(class="item", href="{{pathFor 'admin.dashboard'}}") Dashbaord
       i.home.icon
 
     //- Posts
-    a(class="item", href="#") Posts
+    b(class="item") Posts
       i.pencil.icon
-
+      .menu
+        a(class="item", href="{{pathFor 'admin.posts'}}") All Posts
+        a(class="item", href="{{pathFor 'admin.posts.new'}}") New
     //- Comments
-    b(class="item", href="#") Comments
+    b(class="item") Comments
       i.comments.icon
       .menu
-        a(class="item", href="#") All comments
-        a(class="item", href="#") Spam
+        a(class="item", href="{{pathFor 'admin.comments'}}") All comments
+        a(class="item", href="{{pathFor 'admin.comments.spam'}}") Spam
 
     //- Media
-    b(class="item", href="#") Media
+    b(class="item") Media
       i.photo.icon
       .menu
-        a(class="item", href="#") All Media
-        a(class="item", href="#") Upload
+        a(class="item", href="{{pathFor 'admin.media'}}") All Media
+        a(class="item", href="{{pathFor 'admin.media.upload'}}") Upload
 
     //- Settings
-    b(class="item", href="#") Settings
+    b(class="item") Settings
       i.settings.icon
       .menu
-        a(class="item", href="#") Basic configuration
-        a(class="item", href="#") Search Engine
+        a(class="item", href="{{pathFor 'admin.settings'}}") Basic configuration
+        a(class="item", href="{{pathFor 'admin.settings.seo'}}") Search Engine

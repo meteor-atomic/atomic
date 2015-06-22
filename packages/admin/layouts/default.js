@@ -1,0 +1,5 @@
+/**
+ *
+ */
+Template.DefaultAdminLayout.rendered = function() {
+}
