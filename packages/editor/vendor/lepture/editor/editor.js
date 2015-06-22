@@ -7034,7 +7034,7 @@ function redo(editor) {
  * Preview action.
  */
 function togglePreview(editor) {
-  var toolbar = editor.toolbar.preview;
+  // var toolbar = editor.toolbar.preview;
   var parse = editor.constructor.markdown;
   var cm = editor.codemirror;
   var wrapper = cm.getWrapperElement();
@@ -7048,14 +7048,14 @@ function togglePreview(editor) {
     preview.className = preview.className.replace(
       /\s*editor-preview-active\s*/g, ''
     );
-    toolbar.className = toolbar.className.replace(/\s*active\s*/g, '');
+    // toolbar.className = toolbar.className.replace(/\s*active\s*/g, '');
   } else {
     /* When the preview button is clicked for the first time,
      * give some time for the transition from editor.css to fire and the view to slide from right to left,
      * instead of just appearing.
      */
     setTimeout(function() {preview.className += ' editor-preview-active'}, 1);
-    toolbar.className += ' active';
+    // toolbar.className += ' active';
   }
   var text = cm.getValue();
   preview.innerHTML = parse(text);
