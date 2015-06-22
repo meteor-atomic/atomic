@@ -8,5 +8,5 @@ template(name="AdminCategoryPickerSegment")
       +each categories
         .item
           .ui.checkbox
-            input(type="checkbox", name=_id)
+            input(type="checkbox", name=_id, checked=enabled)
             label=name

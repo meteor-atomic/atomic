@@ -65,8 +65,9 @@ template(name="AdminPostEditView")
             input(type="checkbox", name="published", checked="{{published}}")
             label Published
 
-      //- Category Picker
-      +AdminCategoryPickerSegment
+      +with post
+        //- Category Picker
+        +AdminCategoryPickerSegment(id=_id)
 
-      //- Tags Segment
-      +AdminTagsSegment
+        //- Tags Segment
+        +AdminTagsSegment(id=_id)
