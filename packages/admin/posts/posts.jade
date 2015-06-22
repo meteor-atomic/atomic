@@ -3,6 +3,7 @@ template(name="AdminPostsView")
     thead
       tr
         th
+          input(type="checkbox", class="ui small checkbox checkall")
         th Title
         th Author
         th Published
@@ -13,7 +14,7 @@ template(name="AdminPostsView")
       +each posts
         tr
           td
-            input(type="checkbox")
+            input(type="checkbox", class="ui small checkbox")
           td
             a(href="{{pathFor 'admin.posts.edit' id=this._id}}") {{title}}
           td {{author}}
