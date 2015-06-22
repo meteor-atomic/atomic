@@ -21,6 +21,24 @@ _.extend(Posts, {
   },
 
   /**
+   * Create a new draft post object
+   */
+  draft: function() {
+    return Posts.collection.insert({
+      content: "",
+      draft: true
+    });
+  },
+
+  /**
+   * Update a post entity with changes given in a key/value
+   * pair.
+   */
+  update: function(postId, changes) {
+    return Posts.collection.update({_id: postId}, {"$set": changes});
+  },
+
+  /**
    * Return the top latest posts
    * @return {Mongo.Cursor}
    */
@@ -33,7 +51,16 @@ _.extend(Posts, {
    * @return {Mongo.Cursor}
    */
   all: function() {
-    return Posts.collection.find({});
+    return Posts.collection.find();
+  },
+
+  /**
+   * Find
+   * @param  {[type]} clause [description]
+   * @return {[type]}        [description]
+   */
+  where: function(clause) {
+    return Posts.collection.find(clause);
   },
 
   /**
@@ -43,5 +70,13 @@ _.extend(Posts, {
    */
   get: function(id) {
     return Posts.collection.findOne({_id: id});
+  },
+
+  /**
+   * Remove a post
+   * @param  {Stirng} id object ID
+   */
+  remove: function(id) {
+    return Posts.collection.remove({_id: id});
   }
 });

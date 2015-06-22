@@ -10,17 +10,40 @@ _.extend(Posts, {
     /**
      * Post Title
      */
-    title: { type: String, label: "Title", max: 255 },
+    title: { type: String, label: "Title", max: 255, optional: true},
+
+    /**
+     * Draft mode.
+     * @type {Object}
+     */
+    draft: {type: Boolean, optional:true, autoValue: function(){
+        return true;
+      }
+    },
+
+    published: {type: Boolean, optional:true, autoValue: function() {
+        var published = this.field("published");
+
+        /**
+         * When an update comes in with a value of true.
+         * Make sure we overwrite the draft marker
+         */
+        if(published.value == true)
+          this.field("draft").value = false;
+
+        return published.value;
+      }
+    },
 
     /**
      * Post summary
      */
-    summary: { type: String, label: "Post summery", max: 1024},
+    summary: { type: String, label: "Post summery", max: 1024, optional:  true},
 
     /**
      * Post slug
      */
-    slug: {type: String, label: "Post slug", index: 1, max: 255, autoValue: function() {
+    slug: {type: String, label: "Post slug", optional: true, index: 1, max: 255, autoValue: function() {
         var title = this.field("title");
         if(title.isSet)
           return Utilities.slugify(title.value);
@@ -96,39 +119,39 @@ _.extend(Posts, {
      */
     categories: {type: [Categories.collection], optional: true},
 
-    /**
-     * Revision History
-     */
-    revisions: {type: [Object], optional:true, autoValue: function() {
-        var content = this.field("content");
+    // /**
+    //  * Revision History
+    //  */
+    // revisions: {type: [Object], optional:true,autoValue: function() {
+    //     var content = this.field("content");
 
-        /**
-         * @todo Add editor in here
-         */
-        if (content.isSet) {
-          if(this.isInsert) {
-            return [{ date: new Date, content: content.value, author: this.userId }];
-          }
+    //     /**
+    //      * @todo Add editor in here
+    //      */
+    //     if (content.isSet) {
+    //       if(this.isInsert && content.value != "") {
+    //         return [{ date: new Date, content: content.value, author: this.userId }];
+    //       }
 
-          return { $push: { date: new Date, content: content.value, author: this.userId } };
-        }
-      }
-    },
+    //       return { $push: { date: new Date, content: content.value, author: this.userId } };
+    //     }
+    //   }
+    // },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.date': { type: Date, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.date': { type: Date, optional: true },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.content': { type: String, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.content': { type: String, optional: true },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.author': { type: String, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.author': { type: String, optional: true },
   })
 });
 
@@ -139,6 +162,35 @@ _.extend(Posts, {
 Posts.collection.attachSchema(Posts.schema);
 
 /**
+ * Configure collection security
+ */
+Posts.collection.allow({
+  /**
+   * @todo The user must have the writer permission
+   */
+  insert: function(userId, document) {
+    console.log(arguments);
+    return userId && document.creator == userId;
+  },
+
+  /**
+   * @todo The user must have the editor permission
+   *       or own the document.
+   */
+  update: function (userId, document, fields, modifier) {
+    return !!userId;
+  },
+
+  /**
+   * Remove a document
+   * @return {[type]} [description]
+   */
+  remove: function(userId){
+    return userId;
+  }
+});
+
+/**
  * Publish the psots collection excluding the content,
  * the content is raw markdown and is converted to the html
  * key on save, so sending this over the wire is quite pointless.
@@ -146,5 +198,8 @@ Posts.collection.attachSchema(Posts.schema);
  * @todo Think about private, unpublsihed posts
  */
 Meteor.publish("posts", function() {
-  return Posts.collection.find({}, {fields: {content: 0}})
+  return Posts.collection.find({}, {
+    // fields: {content: 0},
+    sort: {updatedAt: -1, createdAt: -1}
+  })
 })
