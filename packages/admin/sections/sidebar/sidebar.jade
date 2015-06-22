@@ -1,0 +1,30 @@
+template(name="AdminSidebarSection")
+  div(class="ui large sidebar visible left vertical inverted labeled menu")
+    //- Dashboard
+    a(class="item", href="#") Dashbaord
+      i.home.icon
+
+    //- Posts
+    a(class="item", href="#") Posts
+      i.pencil.icon
+
+    //- Comments
+    b(class="item", href="#") Comments
+      i.comments.icon
+      .menu
+        a(class="item", href="#") All comments
+        a(class="item", href="#") Spam
+
+    //- Media
+    b(class="item", href="#") Media
+      i.photo.icon
+      .menu
+        a(class="item", href="#") All Media
+        a(class="item", href="#") Upload
+
+    //- Settings
+    b(class="item", href="#") Settings
+      i.settings.icon
+      .menu
+        a(class="item", href="#") Basic configuration
+        a(class="item", href="#") Search Engine
