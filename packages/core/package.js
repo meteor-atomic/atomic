@@ -19,6 +19,7 @@ Package.onUse(function(api) {
 
   // Load the client application
   api.use("blog:client");
+  api.use("blog:admin");
 });
 
 Package.onTest(function(api) {

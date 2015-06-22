@@ -33,13 +33,13 @@ template(name="BlogPostView")
             div.ui.devided.list.author
               div.item
                 i.user.large.icon
-                | Display Name
+                | #{creator}
               div.item
                 i.large.map.marker.icon
                 | Location
               div.item
                 i.large.time.icon
-                | Timestamp
+                | #{updatedAt}
             .2.fluid.ui.buttons
               .ui.green.button
                 i.user.icon
