@@ -25,7 +25,8 @@ _.extend(Posts, {
    */
   draft: function() {
     return Posts.collection.insert({
-      content: "",
+      title:    "Draft",
+      content:  "",
       draft: true
     });
   },
