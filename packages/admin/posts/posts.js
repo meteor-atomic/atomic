@@ -7,7 +7,34 @@ Template.AdminPostsView.helpers({
    * @return {Cursor}
    */
   posts: function() {
-    return Posts.all();
+    /**
+     * Exclude items marked as draft items
+     * @type {Object}
+     */
+    return Posts.where({draft: {$ne: false}});
+  },
+
+  title: function() {
+    if(this.title &&  this.title.length > 0)
+      return this.title;
+
+    return "Untitled";
+  },
+
+  /**
+   * [author description]
+   * @return {[type]} [description]
+   */
+  author: function(id) {
+    if(this.creator){
+      var user = Meteor.users.findOne({_id: this.creator});
+      if(user){
+        return user.profile.name;
+      }
+      return "";
+    }
+
+    return "System";
   },
 
   /**

@@ -15,10 +15,13 @@ template(name="AdminPostsView")
           td
             input(type="checkbox")
           td
-            a(href="{{pathFor 'blog.posts.view' id=this._id}}")=title
-          td Some Author here
+            a(href="{{pathFor 'admin.posts.edit' id=this._id}}") {{title}}
+          td {{author}}
           td
-            i.large.green.checkmark.icon
+            +if published
+              i.large.green.checkmark.icon
+            +else
+              i.large.remove.icon
           td
             .ui.blue.label 0
           td #{date}

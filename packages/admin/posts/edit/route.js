@@ -1,26 +1,26 @@
 /**
  * Doashbaord Route
  */
-AdminRouter.route("/posts/new", {
+AdminRouter.route("/posts/edit/:id", {
   /**
    * Dashbaord name
    * @type {String}
    */
-  name: "admin.posts.new",
+  name: "admin.posts.edit",
 
   /**
    * Susbscriptions
    */
   subscriptions: function(params, queryParams) {
-    this.register("posts", Posts.subscription({admin:true}));
-    this.register("categories", Categories.subscription());
+    this.register("posts", Posts.subscription(params.id));
   },
 
   /**
    */
   action: function(params, queryParams) {
     FlowLayout.render("DefaultAdminLayout", {
-      view: "AdminPostCreateView"
+      view: "AdminPostEditView",
+      id: params.id
     });
   }
 })

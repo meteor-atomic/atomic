@@ -1,53 +1,38 @@
-template(name="AdminNewPostView")
+template(name="AdminPostCreateView")
 
   h2 New article
 
-  .ui.grid
+  .ui.stackable.grid
     .twelve.wide.column
       //- Title
       div(class="ui large fluid input")
-        input(type="text", placeholder="Title..")
+        input(type="text", placeholder="Title..", name="title")
+        .ui.corner.label
+          i.asterisk.icon
       br
-
-      //- Custom action bar
-      div.button-container
-        .ui.icon.buttons
-          a(class="ui button bold")
-            i.bold.icon
-          a(class="ui button italic")
-            i.italic.icon
-
-        .ui.icon.buttons
-          a(class="ui button quote")
-            i.quote.left.icon
-          a(class="ui button unordered-list")
-            i.unordered.list.icon
-          a(class="ui button ordered-list")
-            i.ordered.list.icon
-
-        .ui.icon.buttons
-          a(class="ui button link")
-            i.linkify.icon
-          a(class="ui button images")
-            i.file.image.outline.icon
-
-        .ui.icon.buttons
-          a(class="ui button undo")
-            i.undo.icon
-          a(class="ui button redo")
-            i.repeat.icon
-
-        .ui.icon.buttons
-          a(class="ui button preview")
-            i.external.icon
-          a(class="ui button fullscreen")
-            i.expand.icon
 
       //- The text area container
       .ui.segment
         div#editor
+          .ui.corner.label
+            i.asterisk.icon
 
     //- Sidebar
     .four.wide.column
+      .ui.2.fluid.buttons.right
+        .ui.button.cancel Cancel
+        .or
+        .ui.button.positive.save Save
       .ui.segment
-        h4 Options
+        h4
+          i.external.share.icon
+          | Publication
+        div(class="ui toggle checkbox")
+          input(type="checkbox", name="published")
+          label Published
+
+      //- Category Picker
+      +AdminCategoryPickerSegment
+
+      //- Tags Segment
+      +AdminTagsSegment

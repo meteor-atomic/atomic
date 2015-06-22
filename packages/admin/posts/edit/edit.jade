@@ -1,0 +1,72 @@
+template(name="AdminPostEditView")
+  h2
+    | Edit post
+    small.tiny Last update at
+  .ui.stackable.grid
+    .twelve.wide.column
+      //- Title
+      div(class="ui large fluid input")
+        +with post
+          input(type="text", placeholder="Title..", name="title", value="{{title}}")
+          .ui.corner.label
+            i.asterisk.icon
+      br
+
+      //- Custom action bar
+      div.button-container
+        .ui.icon.buttons
+          a(class="ui button bold")
+            i.bold.icon
+          a(class="ui button italic")
+            i.italic.icon
+
+        .ui.icon.buttons
+          a(class="ui button quote")
+            i.quote.left.icon
+          a(class="ui button unordered-list")
+            i.unordered.list.icon
+          a(class="ui button ordered-list")
+            i.ordered.list.icon
+
+        .ui.icon.buttons
+          a(class="ui button link")
+            i.linkify.icon
+          a(class="ui button images")
+            i.file.image.outline.icon
+
+        .ui.icon.buttons
+          a(class="ui button undo")
+            i.undo.icon
+          a(class="ui button redo")
+            i.repeat.icon
+
+        .ui.icon.buttons
+          a(class="ui button preview")
+            i.external.icon
+          a(class="ui button fullscreen")
+            i.expand.icon
+
+      //- The text area container
+      .ui.segment
+        div#editor
+          .ui.corner.label
+            i.asterisk.icon
+      .ui.attached.segment
+        div#preview
+
+    //- Sidebar
+    .four.wide.column
+      .ui.segment
+        h4
+          i.external.share.icon
+          | Publication
+        div(class="ui toggle checkbox")
+          +with post
+            input(type="checkbox", name="published", checked="{{published}}")
+            label Published
+
+      //- Category Picker
+      +AdminCategoryPickerSegment
+
+      //- Tags Segment
+      +AdminTagsSegment
