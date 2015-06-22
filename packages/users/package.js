@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.use("aldeed:collection2@2.3.3");
   api.use("aldeed:simple-schema");
   api.use("underscore");
+  api.use("check");
 
   api.addFiles('users.js',        ["server", "client"]);
   api.addFiles('users_server.js', ["server"]);
