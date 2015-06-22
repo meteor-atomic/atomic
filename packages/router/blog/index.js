@@ -17,8 +17,8 @@ Router.route('/blog', {
       /**
        * Subsribe to posts
        */
-        this.register('posts',      Posts.subscribe());
-        this.register('categories', Categories.subscribe());
+        this.register('posts',      Posts.subscription());
+        this.register('categories', Categories.subscription());
     },
 
     /**

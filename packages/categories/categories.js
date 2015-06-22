@@ -18,8 +18,8 @@ _.extend(Categories, {
    * @param  {String} name        Unique category name
    * @param  {String} description Description for the category
    */
-  subscribe: function() {
-  	return Meteor.subscribe("categories");
+  subscription: function(options) {
+  	return Meteor.subscribe("categories", options);
   },
 
 

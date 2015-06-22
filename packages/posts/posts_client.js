@@ -6,7 +6,7 @@ _.extend(Posts, {
 	/**
 	 * @todo pass arguments over to Meteor.subscribe
 	 */
-	subscribe: function() {
-		Meteor.subscribe("posts");
+	subscription: function(options) {
+		return Meteor.subscribe("posts", options);
 	}
 });
