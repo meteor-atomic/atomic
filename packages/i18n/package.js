@@ -1,4 +1,5 @@
 Package.describe({
+  name: 'blog:i18n',
   version: '0.1.0',
   summary: 'i18n package, wraps and configures TAPI18n',
   git: 'https://github.com/robertpitt/meteorpress'

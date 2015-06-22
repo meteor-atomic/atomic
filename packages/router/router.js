@@ -7,7 +7,7 @@ Router = FlowRouter;
  * Global subscriptions
  */
 Router.subscriptions = function() {
-  // this.register(<name>, <subscription>);
+  this.register("settings", Settings.subscription());
 }
 
 /**

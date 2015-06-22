@@ -1,4 +1,5 @@
 Package.describe({
+  name: 'blog:rss',
   version: '0.1.0',
   summary: 'RSS Feeds',
   git: 'https://github.com/robertpitt/meteorpress'

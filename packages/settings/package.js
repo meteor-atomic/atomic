@@ -1,4 +1,5 @@
 Package.describe({
+  name: 'blog:settings',
   version: '0.1.0',
   summary: 'Settings Package',
   git: 'https://github.com/robertpitt/meteorpress'

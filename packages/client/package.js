@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.use("blog:accounts");
   api.use("blog:categories");
   api.use("blog:posts");
+  api.use("blog:router");
   api.use("blog:i18n", ["client", "server"]);
 
   // Templating
@@ -20,7 +21,6 @@ Package.onUse(function(api) {
   api.use("chuangbo:marked@0.3.2");
 
   // Routing
-  api.use("blog:router");
   api.use("arillo:flow-router-helpers");
 
   // UI

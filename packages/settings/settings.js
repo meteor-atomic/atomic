@@ -4,7 +4,7 @@
 Settings = {};
 
 /**
- * 
+ *
  */
 _.extend(Settings, {
 	/**
@@ -12,7 +12,7 @@ _.extend(Settings, {
 	 *
 	 * @todo Add distinct on the key
 	 */
-	settings: new Meteor.Collection("settings"),
+	collection: new Meteor.Collection("settings"),
 
 	/**
 	 * Placeholder

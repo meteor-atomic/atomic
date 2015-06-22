@@ -10,7 +10,7 @@ Meteor.publish("settings", function(){
 /**
  * Ensure the index
  */
-Settings.settings._ensureIndex({"key" : 1}, {unique: true});
+Settings.collection._ensureIndex({"key" : 1}, {unique: true});
 
 /**
  * Extend the settings with client side functions
@@ -20,7 +20,7 @@ _.extend(Settings, {
 	 * Fetch a setting
 	 */
 	get: function(key) {
-		var key = Settings.settings.findOne({key: key}) || undefined;
+		var key = Settings.collection.findOne({key: key}) || undefined;
 		return key ? key.value : undefined;
 	},
 
@@ -32,6 +32,6 @@ _.extend(Settings, {
 	 */
 	set: function(key, value, public) {
 		public = public || false;
-		return Settings.settings.upsert({"key": key}, {$set: {"key": key, "value": value, "public": public}});
+		return Settings.collection.upsert({"key": key}, {$set: {"key": key, "value": value, "public": public}});
 	}
 });
