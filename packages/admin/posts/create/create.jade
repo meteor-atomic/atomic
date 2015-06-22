@@ -1,4 +1,53 @@
 template(name="AdminNewPostView")
 
-  //- The text area container
-  textarea
+  h2 New article
+
+  .ui.grid
+    .twelve.wide.column
+      //- Title
+      div(class="ui large fluid input")
+        input(type="text", placeholder="Title..")
+      br
+
+      //- Custom action bar
+      div.button-container
+        .ui.icon.buttons
+          a(class="ui button bold")
+            i.bold.icon
+          a(class="ui button italic")
+            i.italic.icon
+
+        .ui.icon.buttons
+          a(class="ui button quote")
+            i.quote.left.icon
+          a(class="ui button unordered-list")
+            i.unordered.list.icon
+          a(class="ui button ordered-list")
+            i.ordered.list.icon
+
+        .ui.icon.buttons
+          a(class="ui button link")
+            i.linkify.icon
+          a(class="ui button images")
+            i.file.image.outline.icon
+
+        .ui.icon.buttons
+          a(class="ui button undo")
+            i.undo.icon
+          a(class="ui button redo")
+            i.repeat.icon
+
+        .ui.icon.buttons
+          a(class="ui button preview")
+            i.external.icon
+          a(class="ui button fullscreen")
+            i.expand.icon
+
+      //- The text area container
+      .ui.segment
+        div#editor
+
+    //- Sidebar
+    .four.wide.column
+      .ui.segment
+        h4 Options
