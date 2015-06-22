@@ -169,8 +169,7 @@ Posts.collection.allow({
    * @todo The user must have the writer permission
    */
   insert: function(userId, document) {
-    console.log(arguments);
-    return userId && document.creator == userId;
+    return !!userId && document.creator == userId;
   },
 
   /**
@@ -186,7 +185,7 @@ Posts.collection.allow({
    * @return {[type]} [description]
    */
   remove: function(userId){
-    return userId;
+    return !!userId;
   }
 });
 

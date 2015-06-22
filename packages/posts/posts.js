@@ -39,6 +39,24 @@ _.extend(Posts, {
   },
 
   /**
+   * Add a tag to a blog post
+   * @param {String} postId Post ids
+   * @param {String} tag    Tag value
+   */
+  addTags: function(postId, tags) {
+    Posts.collection.update({_id: postId}, {"$addToSet": {tags: {"$each": tags}}});
+  },
+
+  /**
+   * Add a tag to a blog post
+   * @param {String} postId Post ids
+   * @param {String} tag    Tag value
+   */
+  removeTag: function(postId, tag) {
+    Posts.collection.update({_id: postId}, {"$pull": {tags: tag}});
+  },
+
+  /**
    * Return the top latest posts
    * @return {Mongo.Cursor}
    */
