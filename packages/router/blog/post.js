@@ -1,4 +1,4 @@
-Router.route('/blog/:id/:slug', {
+Router.route('/blog/:id/:slug?', {
     /**
      * Index route id
      * @type {String}

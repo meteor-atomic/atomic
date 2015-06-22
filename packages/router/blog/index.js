@@ -1,9 +1,25 @@
-Router.route('/', {
+Router.route('/blog', {
     /**
      * Index route id
      * @type {String}
      */
-    name: "index",
+    name: "blog",
+
+    /**
+     * Attach route level subscriptions
+     * @param  {Object} params      Router Parameters
+     * @param  {Object} queryParams Query Parameters
+     * @return {void}
+     *
+     * @todo Pagination
+     */
+    subscriptions: function(params, queryParams) {
+      /**
+       * Subsribe to posts
+       */
+        this.register('posts',      Posts.subscribe());
+        this.register('categories', Categories.subscribe());
+    },
 
     /**
      * When the route is activated
@@ -12,6 +28,6 @@ Router.route('/', {
      * @return {void}
      */
     action: function(params, queryParams) {
-        FlowRouter.go("blog");
+        FlowLayout.render("DefaultLayout", {view: "BlogView"});
     }
 });

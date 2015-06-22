@@ -19,9 +19,9 @@ Package.onUse(function(api) {
 
   // Routing declarations
   api.addFiles("router.js", "client");
+  api.addFiles("index.js", "client");
   api.addFiles("blog/index.js", "client");
-  api.addFiles("blog/blog.js", "client");
-  api.addFiles("blog/blog_post.js", "client");
+  api.addFiles("blog/post.js", "client");
 
   api.export("Router");
 });
