@@ -1,0 +1,14 @@
+template(name="AdminTagsSegment")
+  .ui.segment
+    h4
+      i.tags.icon
+      | Tags
+    .ui.fluid.icon.input
+      i.tag.icon
+      input(type="text", placeholder="Add tag (space seperated)..")
+    br
+    .ui.blue.labels
+      +each tags
+        a.ui.label
+          | {{this}}
+          i.delete.icon

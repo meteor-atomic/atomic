@@ -12,7 +12,8 @@ Package.onUse(function(api) {
    * Require meteor packages
    */
   api.use("templating",                       "client");
-  api.use("mquandalle:jade@0.4.3",            "client");
+  api.use("reactive-var",                     "client");
+  api.use("reactive-dict",                    "client");
 
   /**
    * Require internal packages
@@ -24,6 +25,11 @@ Package.onUse(function(api) {
   api.use("blog:categories",                  "client");
   api.use("blog:users",                       "client");
   api.use("blog:editor",                      "client");
+
+  /**
+   * Custom packages
+   */
+  api.use("mquandalle:jade@0.4.3",            "client");
 
   // Temporary until it's seperated and wrapped like
   // the Router is.
@@ -43,6 +49,12 @@ Package.onUse(function(api) {
   api.addFiles("sections/sidebar/sidebar.jade", "client");
   api.addFiles("sections/sidebar/sidebar.js",   "client");
 
+  // Segments
+  api.addFiles("segments/tags/tags.jade",               "client");
+  api.addFiles("segments/tags/tags.js",                 "client");
+  api.addFiles("segments/category_picker/picker.jade",  "client");
+  api.addFiles("segments/category_picker/picker.js",    "client");
+
   // Dashbaord
   api.addFiles("dashboard/dashboard.jade",    "client");
   api.addFiles("dashboard/route.js",          "client");
@@ -54,4 +66,12 @@ Package.onUse(function(api) {
   api.addFiles("posts/create/create.jade",    "client");
   api.addFiles("posts/create/create.js",      "client");
   api.addFiles("posts/create/route.js",       "client");
+  api.addFiles("posts/edit/edit.jade",        "client");
+  api.addFiles("posts/edit/edit.js",          "client");
+  api.addFiles("posts/edit/route.js",         "client");
+
+  // Media
+  api.addFiles("media/route.js",              "client");
+  api.addFiles("media/media.jade",            "client");
+  api.addFiles("media/media.js",              "client");
 });

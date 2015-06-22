@@ -1,0 +1,12 @@
+template(name="AdminCategoryPickerSegment")
+  .ui.segment
+    h4
+      i.folder.icon
+      | Category
+
+    .ui.list
+      +each categories
+        .item
+          .ui.checkbox
+            input(type="checkbox", name=_id)
+            label=name
