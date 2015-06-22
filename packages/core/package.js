@@ -24,9 +24,6 @@ Package.onUse(function(api) {
 
   // Load the client application
   api.use("blog:client");
-
-  // Load the administration
-  api.use("blog:administration");
 });
 
 Package.onTest(function(api) {

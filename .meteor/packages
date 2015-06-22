@@ -6,3 +6,4 @@
 
 meteor-platform
 blog:core
+blog:router

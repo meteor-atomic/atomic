@@ -26,7 +26,7 @@ template(name="BlogPostView")
       +with post
         div.sidebar
 
-          //- Author information 
+          //- Author information
           div.ui.segment
             a.avatar.small
               img(class="ui large rounded image", src="http://graio.com/templates/band/images/assets/avatar/stevie.jpg")
@@ -46,7 +46,7 @@ template(name="BlogPostView")
                 | Follow
               .ui.blue.button
                 i.pencil.icon
-                | Repl
+                | Reply
 
           //- Share box
           div.ui.segment
@@ -60,10 +60,6 @@ template(name="BlogPostView")
               .ui.twitter.button
                 i.twitter.icon
                 | Twitter
-            br
-            .ui.fluid.input
-              input(value="https://short.link/c0opop", type="text", onclick="this.select();")
-
 
           //- Article Tags
           div.ui.segment
@@ -71,6 +67,5 @@ template(name="BlogPostView")
               i.tag.icon
               | Article Tags
             .ui.blue.labels
-              a.ui.label Meteor
-              a.ui.label Email
-              a.ui.label NodeJS
+              +each tags
+                a.ui.label {{this}}

@@ -28,12 +28,19 @@ _.extend(Posts, {
     },
 
     /**
+     * Added basic tags array
+     * @todo if this is empty on insert then maybe auto detect tags?
+     * @type {Object}
+     */
+    tags: { type: [String], optional: true},
+
+    /**
      * Raw markdown content
      */
     content: { type: String, label: "Markdown version of the post", optional: true},
 
     /**
-     * @todo 
+     * @todo
      */
     html : { type: String, label: "Html version of the post", optional: true, autoValue: function() {
             var content = this.field("content");
@@ -46,7 +53,7 @@ _.extend(Posts, {
             }
         }
     },
-    
+
     /**
      * creator
      * @type {Object}
@@ -68,7 +75,7 @@ _.extend(Posts, {
     createdAt: { type: Date, label: "Date the post was created", denyUpdate: true, autoValue: function() {
         if (this.isInsert)
           return new Date;
-          
+
         if(this.isUpsert)
           return {$setOnInsert: new Date};
 

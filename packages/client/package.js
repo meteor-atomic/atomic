@@ -25,46 +25,33 @@ Package.onUse(function(api) {
   api.use("chuangbo:marked@0.3.2");
 
   // Routing
-  api.use("meteorhacks:flow-router@1.15.0", "client");
-  api.use("meteorhacks:flow-layout", "client");
-  api.use("arillo:flow-router-helpers", "client");
+  api.use("blog:router");
+  api.use("arillo:flow-router-helpers");
 
   // UI
   api.use("semantic:ui-css@1.12.3", "client");
   api.use("utilities:avatar@0.7.11");
   api.use("mrt:moment");
 
-  var UIFiles = [
-    "en.i18n.json",
-    "client/head.html",
-    "client/helpers.js",
+  /**
+   * Load the i18n language file(s)
+   */
+  api.addFiles("en.i18n.json",  "client");
 
-    // Layouts
-    "client/layouts/default.jade",
-    "client/layouts/default.css",
-
-    // Sections
-    "client/sections/header/header.jade",
-    "client/sections/header/header.js",
-
-    // Components
-    "client/components/comments/comments.jade",
-    "client/components/breadcrumbs/breadcrumbs.jade",
-
-    // Index
-    "client/views/index/route.js",
-
-    // Blog
-    "client/views/blog/blog.jade",
-    "client/views/blog/blog.js",
-    "client/views/blog/route.js",
-
-    "client/views/blog_post/blog_post.jade",
-    "client/views/blog_post/blog_post.js",
-    "client/views/blog_post/route.js"
-  ];
-
-  UIFiles.forEach(function(file){
-    api.addFiles(file, "client");
-  });
+  /**
+   * Load the client application.
+   */
+  api.addFiles("client/head.html",                          "client");
+  api.addFiles("client/404.jade",                           "client");
+  api.addFiles("client/helpers.js",                         "client");
+  api.addFiles("client/layouts/default.jade",               "client");
+  api.addFiles("client/layouts/default.css",                "client");
+  api.addFiles("client/sections/header/header.jade",        "client");
+  api.addFiles("client/sections/header/header.js",          "client");
+  api.addFiles("client/components/comments/comments.jade",  "client");
+  api.addFiles("client/components/breadcrumbs/breadcrumbs.jade", "client");
+  api.addFiles("client/views/blog/blog.jade",               "client");
+  api.addFiles("client/views/blog/blog.js",                 "client");
+  api.addFiles("client/views/blog_post/blog_post.jade",     "client");
+  api.addFiles("client/views/blog_post/blog_post.js",       "client");
 });

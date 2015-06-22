@@ -4,10 +4,6 @@ template(name="HeaderSection")
 			i(class="home outline icon")
 			| {{_ 'home'}}
 		a(href="{{pathFor 'blog'}}", class="brand item") {{_ 'blog'}}
-		//- this should not use the router
-		+if isInRole 'admin'
-			a(class="item", href="{{pathFor 'admin.index'}}") {{_ 'admin'}}
-
 		div(class="right menu")
 			div(class="item")
 				div(class="ui transparent icon input")

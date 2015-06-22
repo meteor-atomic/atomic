@@ -1,12 +1,9 @@
-/**
- * Index Route
- */
-AdminRouter.route("/", {
+Router.route('/', {
     /**
      * Index route id
      * @type {String}
      */
-    name: "admin.index",
+    name: "index",
 
     /**
      * When the route is activated
@@ -15,8 +12,6 @@ AdminRouter.route("/", {
      * @return {void}
      */
     action: function(params, queryParams) {
-        FlowLayout.render("AdminDefaultLayout", {
-            view: "AdminIndexView"
-        });
+        FlowRouter.go("blog");
     }
-})
+});

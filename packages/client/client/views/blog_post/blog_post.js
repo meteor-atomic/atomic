@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 Template.BlogPostView.helpers({
 	/**
@@ -10,5 +10,12 @@ Template.BlogPostView.helpers({
 	 */
 	post : function() {
 		return Posts.get(this.id());
-	}
+	},
+
+  /**
+   * Generate short link
+   */
+  shortlink: function() {
+    return Router.path("blog.short", {id: this._id});
+  }
 })

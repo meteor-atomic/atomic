@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 Template.BlogView.helpers({
 	/**
@@ -25,7 +25,7 @@ Template.BlogView.helpers({
 	 * @return {[type]} [description]
 	 */
 	link: function() {
-		return FlowRouter.path("blog_post", {id: this._id, slug: this.slug});
+		return Router.path("blog.post", {id: this._id, slug: this.slug});
 	},
 
 	/**
@@ -64,7 +64,7 @@ Template.BlogView.helpers({
 	/**
 	 * Returna single category for this post object
 	 * @this {Post}
-	 * @return {String} 
+	 * @return {String}
 	 */
 	category_description: function() {
 		try {
@@ -74,4 +74,4 @@ Template.BlogView.helpers({
 			return "Unknown";
 		}
 	}
-})
+});
