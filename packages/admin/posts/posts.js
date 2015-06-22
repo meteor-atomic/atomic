@@ -1,3 +1,8 @@
+Template.AdminPostsView.events({
+  "change input.checkall": function(e, template) {
+    template.$('tbody input.checkbox').prop("checked", e.currentTarget.checked)
+  }
+});
 /**
  * Posts helpers
  */
