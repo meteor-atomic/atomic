@@ -32,6 +32,7 @@ for (var i = 10; i >= 0; i--) {
 	  summary: "We are hard at work polishing up Meteor Accounts, our full-featured auth system that supports login with Facebook and Google, or with secure passwords. Many Meteor developers are already using it on our pre-release [`auth`](https://github.com/meteor/meteor/tree/auth) branch and contributing code: we've merged pull requests for Twitter and Weibo login services, with more on the way.",
 	  categories: [category],
     tags: ["Meteor", "Accounts", "Email"],
+    published: true,
 	  content: [
 	    "We are hard at work polishing up Meteor Accounts, our full-featured auth system that supports login with Facebook and Google, or with secure passwords. Many Meteor developers are already using it on our pre-release [`auth`](https://github.com/meteor/meteor/tree/auth) branch and contributing code: we've merged pull requests for Twitter and Weibo login services, with more on the way. See the [Getting Started with Auth](https://github.com/meteor/meteor/wiki/Getting-Started-with-Auth) page on our wiki and the email traffic on [the meteor-core list](https://groups.google.com/forum/?fromgroups#!forum/meteor-core) if you want to get an early look.",
 	    "One result of that effort is Meteor 0.4.1's new [`email` smart package](http://docs.meteor.com/#email) for sending email messages, which Meteor Accounts uses to send password recovery and welcome emails. When running locally, emails prints to the console for ease of debugging. In production, `Email.send()` will work with any standard SMTP server.",
