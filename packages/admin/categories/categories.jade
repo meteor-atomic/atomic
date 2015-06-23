@@ -1,0 +1,18 @@
+template(name="AdminCategoriesView")
+  table(class="ui table")
+    thead
+      tr
+        th
+          input(type="checkbox", class="ui small checkbox checkall")
+        th Name
+        th Description
+        th Slug
+        th Actions
+    tbody
+      +each categories
+        tr
+          td
+            input(type="checkbox", class="ui small checkbox checkall")
+          td {{name}}
+          td {{description}}
+          td {{slug}}

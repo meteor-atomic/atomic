@@ -10,6 +10,9 @@ template(name="AdminSidebarSection")
       .menu
         a(class="{{classes 'admin.posts'}}", href="{{pathFor 'admin.posts'}}") All Posts
         a(class="{{classes 'admin.posts.new'}}", href="{{pathFor 'admin.posts.new'}}") New
+    //- Categories
+    a(class="item", class="{{classes 'admin.categories'}}", href="{{pathFor 'admin.categories'}}") Categories
+      i.sitemap.icon
     //- Comments
     b(class="item") Comments
       i.comments.icon
