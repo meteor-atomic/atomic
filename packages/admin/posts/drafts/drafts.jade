@@ -1,0 +1,18 @@
+template(name="AdminPostDraftsView")
+  h2 Drafts
+  table(class="ui table")
+    thead
+      tr
+        th
+          input(type="checkbox", class="ui small checkbox checkall")
+        th Title
+        th Author
+        th Last modified
+    tbody
+      +each drafts
+        tr
+          td
+          td
+            a(href="{{pathFor 'admin.posts.edit' id=this._id}}") {{title}}
+          td {{creator}}
+          td {{updatedAt}}
