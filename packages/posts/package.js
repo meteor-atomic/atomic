@@ -19,6 +19,7 @@ Package.onUse(function(api) {
   // Blog
   api.use("blog:utilities");
   api.use("blog:categories");
+  api.use("blog:security");
 
   // Data based packages
   api.use("aldeed:collection2@2.3.3");
