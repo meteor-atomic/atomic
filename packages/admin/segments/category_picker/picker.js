@@ -10,8 +10,11 @@ Template.AdminCategoryPickerSegment.created = function(){
   /**
    * Subscribe to the context
    */
-  if(this.data.id)
-    this.subscribe("post", Posts.subscription(this.data.id));
+  if(this.data.id){
+    this.subscribe("post",
+      Posts.subscription({admin: true, query: {_id: this.data.id} })
+    );
+  }
 }
 
 Template.AdminCategoryPickerSegment.helpers({

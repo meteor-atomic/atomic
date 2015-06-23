@@ -16,7 +16,7 @@ Template.AdminPostsView.helpers({
      * Exclude items marked as draft items
      * @type {Object}
      */
-    return Posts.where({draft: {$ne: false}});
+    return Posts.where({draft: false});
   },
 
   title: function() {

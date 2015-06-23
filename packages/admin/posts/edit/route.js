@@ -12,7 +12,10 @@ AdminRouter.route("/posts/edit/:id", {
    * Susbscriptions
    */
   subscriptions: function(params, queryParams) {
-    this.register("posts", Posts.subscription(params.id));
+    this.register("post", Posts.subscription({
+      admin: true,
+      query: {_id: params.id}
+    }));
   },
 
   /**
