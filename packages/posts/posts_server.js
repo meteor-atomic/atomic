@@ -17,7 +17,12 @@ _.extend(Posts, {
      * @type {Object}
      */
     draft: {type: Boolean, optional:true, autoValue: function(){
-        return true;
+        var published = this.field('published');
+
+        if(published.isSet && published.value == true)
+          return false;
+
+        return this.value;
       }
     },
 
@@ -169,16 +174,3 @@ Posts.collection.permit(['update']).ifHasRole(['admin', 'writer']).apply();
 
 // Apply the security rules for removals
 Posts.collection.permit(['remove']).ifHasRole(['admin']).isPostCreator().apply()
-
-/**
- * Publish the psots collection excluding the content,
- * the content is raw markdown and is converted to the html
- * key on save, so sending this over the wire is quite pointless.
- *
- * @todo Think about private, unpublsihed posts
- */
-Meteor.publish("posts", function() {
-  return Posts.collection.find({}, {
-    sort: {updatedAt: -1, createdAt: -1}
-  })
-})
