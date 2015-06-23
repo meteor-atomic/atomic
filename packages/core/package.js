@@ -19,6 +19,9 @@ Package.onUse(function(api) {
 
   // Load the client application
   api.use("blog:client");
+
+  // This can be enabled or disabled by commenting this line out
+  // admin is 100% detachable.
   api.use("blog:admin");
 });
 
