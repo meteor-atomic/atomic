@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'blog:accounts',
+  name: 'atomic:accounts',
   version: '0.5.0',
   summary: 'Accounts wrapper package',
   git: 'https://github.com/robertpitt/meteorpress'

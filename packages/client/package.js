@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'blog:client',
-  version: '0.1.0',
+  name: 'atomic:client',
+  version: '0.5.0',
   summary: 'Client side application',
   git: 'https://github.com/robertpitt/meteorpress'
 });
@@ -9,11 +9,11 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   // Internal
-  api.use("blog:accounts");
-  api.use("blog:categories");
-  api.use("blog:posts");
-  api.use("blog:router");
-  api.use("blog:i18n", ["client", "server"]);
+  api.use("atomic:accounts");
+  api.use("atomic:categories");
+  api.use("atomic:posts");
+  api.use("atomic:router");
+  api.use("atomic:i18n", ["client", "server"]);
 
   // Templating
   api.use("templating", "client");

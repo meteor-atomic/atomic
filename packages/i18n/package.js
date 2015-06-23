@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'blog:i18n',
-  version: '0.1.0',
+  name: 'atomic:i18n',
+  version: '0.5.0',
   summary: 'i18n package, wraps and configures TAPI18n',
   git: 'https://github.com/robertpitt/meteorpress'
 });
@@ -25,10 +25,4 @@ Package.onUse(function(api) {
 
   api.addFiles('i18n.js');
   api.export("I18n");
-});
-
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('blog:i18n');
-  api.addFiles('i18n-tests.js');
 });

@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'blog:admin',
+  name: 'atomic:admin',
   version: '0.5.0',
   summary: 'Blog adminsitration area',
   git: 'https://github.com/robertpitt/meteorpress',
@@ -18,13 +18,13 @@ Package.onUse(function(api) {
   /**
    * Require internal packages
    */
-  api.use("blog:router",                                "client");
-  api.use("blog:settings",                              "client");
-  api.use("blog:i18n",                                  "client");
-  api.use("blog:posts",                                 "client");
-  api.use("blog:categories",                            "client");
-  api.use("blog:users",                                 "client");
-  api.use("blog:editor",                                "client");
+  api.use("atomic:router",                                "client");
+  api.use("atomic:settings",                              "client");
+  api.use("atomic:i18n",                                  "client");
+  api.use("atomic:posts",                                 "client");
+  api.use("atomic:categories",                            "client");
+  api.use("atomic:users",                                 "client");
+  api.use("atomic:editor",                                "client");
 
   /**
    * Custom packages

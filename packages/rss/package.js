@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'blog:rss',
-  version: '0.1.0',
+  name: 'atomic:rss',
+  version: '0.5.0',
   summary: 'RSS Feeds',
   git: 'https://github.com/robertpitt/meteorpress'
 });
@@ -12,7 +12,7 @@ Package.onUse(function(api) {
 
   api.use("webapp", "server");
   api.use("routepolicy", "server");
-  api.use("blog:posts", "server");
+  api.use("atomic:posts", "server");
 
   api.addFiles('rss.js', "server");
 });

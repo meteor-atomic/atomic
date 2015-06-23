@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'blog:utilities',
-  version: '0.1.0',
+  name: 'atomic:utilities',
+  version: '0.5.0',
   summary: 'Utilities package',
   git: 'https://github.com/robertpitt/meteorpress'
 });

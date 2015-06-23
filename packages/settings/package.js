@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'blog:settings',
-  version: '0.1.0',
+  name: 'atomic:settings',
+  version: '0.5.0',
   summary: 'Settings Package',
   git: 'https://github.com/robertpitt/meteorpress'
 });
@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.use("mongo",                    ["server"]);
 
   // Data Security
-  api.use("blog:security",            ["server"]);
+  api.use("atomic:security",            ["server"]);
 
   // Settings files
   api.addFiles('settings.js',         ["server", "client"]);

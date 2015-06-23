@@ -1,7 +1,5 @@
 template(name="AdminPostEditView")
-  h2
-    | Edit post
-    small.tiny Last update at
+  h2 Edit post
   .ui.stackable.grid
     .twelve.wide.column
       //- Title
@@ -43,8 +41,10 @@ template(name="AdminPostEditView")
         .ui.icon.buttons
           a(class="ui button preview")
             i.external.icon
+            | Preview
           a(class="ui button fullscreen")
             i.expand.icon
+            | Fullscreen
 
       //- The text area container
       .ui.segment
@@ -54,6 +54,10 @@ template(name="AdminPostEditView")
 
     //- Sidebar
     .four.wide.column
+      .ui.2.fluid.buttons
+        .ui.button Cancel
+        .or
+        .ui.positive.button Save
       .ui.segment
         h4
           i.external.share.icon
