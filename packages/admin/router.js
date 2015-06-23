@@ -9,11 +9,5 @@ AdminRouter = Router.group({
    * Enter Trigger
    * @type {Array}
    */
-  triggersEnter: [
-    function() {
-      if(!Meteor.userId() || !Roles.userIsInRole(Meteor.user(), ['admin'])) {
-        return Router.go("index");
-      }
-    }
-  ]
+  triggersEnter: []
 });
