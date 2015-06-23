@@ -39,4 +39,4 @@ _.extend(Settings, {
 /**
  * Only allow admin to create and update
  */
-Settings.collection.permit(['insert', 'update', 'delete']).ifHasRole('admin').apply();
+Settings.collection.permit(['insert', 'update', 'remove']).ifHasRole('admin').apply();

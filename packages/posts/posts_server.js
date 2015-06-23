@@ -161,37 +161,14 @@ _.extend(Posts, {
  */
 Posts.collection.attachSchema(Posts.schema);
 
-/**
- * Configure collection security
- */
-Posts.collection.allow({
-  /**
-   * @todo The user must have the writer permission
-   */
-  insert: function(userId, document) {
-    return Roles.userIsInRole(userId, ['admin', 'writer']) && document.creator == userId;
-  },
+// Apply the security rules for inserts
+Posts.collection.permit(['insert']).isPostCreator().ifHasRole(['admin', 'writer']).apply()
 
-  /**
-   * @todo The user must have the editor permission
-   *       or own the document.
-   */
-  update: function (userId, document, fields, modifier) {
-    return Roles.userIsInRole(userId, ['admin', 'editor']);
-  },
+// Apply the security rules for updates
+Posts.collection.permit(['update']).ifHasRole(['admin', 'writer']).apply();
 
-  /**
-   * Remove a document
-   * @return {[type]} [description]
-   */
-  remove: function(userId, document){
-    var isAdmin   = Roles.userIsInRole(userId, ['admin']);
-    var isWriter  = Roles.userIsInRole(userId, ['writer']);
-    var isEditor  = Roles.userIsInRole(userId, ['editor']);
-
-    return  isAdmin || ((isWriter || isEditor) && document.creator == userId);
-  }
-});
+// Apply the security rules for removals
+Posts.collection.permit(['remove']).ifHasRole(['admin']).isPostCreator().apply()
 
 /**
  * Publish the psots collection excluding the content,
