@@ -35,3 +35,8 @@ _.extend(Settings, {
 		return Settings.collection.upsert({"key": key}, {$set: {"key": key, "value": value, "public": public}});
 	}
 });
+
+/**
+ * Only allow admin to create and update
+ */
+Settings.collection.permit(['insert', 'update', 'delete']).ifHasRole('admin').apply();

@@ -11,6 +11,9 @@ Package.onUse(function(api) {
   api.use("underscore", ["server", "client"]);
   api.use("mongo", "server");
 
+  // Data Security
+  api.use("blog:security",    ["server"]);
+
   /**
    * Add the
    */
