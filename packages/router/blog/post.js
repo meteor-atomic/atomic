@@ -17,7 +17,9 @@ Router.route('/blog/:id/:slug?', {
       /**
        * Subsribe to posts
        */
-      this.register('posts', Posts.subscription(params.id));
+      this.register('post', Posts.subscription({
+        query: {_id : params.id}
+      }));
     },
 
     /**

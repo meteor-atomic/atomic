@@ -15,7 +15,7 @@ Template.BlogPostView.helpers({
 	 * @todo pagination
 	 */
 	post : function() {
-		return Posts.get(this.id());
+		return Posts.where({_id: this.id()});
 	},
 
   /**
