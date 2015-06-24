@@ -61,28 +61,33 @@ Package.onUse(function(api) {
   api.addFiles("segments/category_creator/creator.js",  "client");
 
   // Dashbaord
-  api.addFiles("dashboard/dashboard.jade",              "client");
-  api.addFiles("dashboard/route.js",                    "client");
+  api.addFiles("areas/dashboard/dashboard.jade",        "client");
+  api.addFiles("areas/dashboard/route.js",              "client");
 
   // Posts
-  api.addFiles("posts/posts.jade",                      "client");
-  api.addFiles("posts/posts.js",                        "client");
-  api.addFiles("posts/route.js",                        "client");
-  api.addFiles("posts/create/route.js",                 "client");
-  api.addFiles("posts/edit/edit.jade",                  "client");
-  api.addFiles("posts/edit/edit.js",                    "client");
-  api.addFiles("posts/edit/route.js",                   "client");
-  api.addFiles("posts/drafts/drafts.jade",              "client");
-  api.addFiles("posts/drafts/drafts.js",                "client");
-  api.addFiles("posts/drafts/route.js",                 "client");
+  api.addFiles("areas/posts/posts.jade",                "client");
+  api.addFiles("areas/posts/posts.js",                  "client");
+  api.addFiles("areas/posts/route.js",                  "client");
+  api.addFiles("areas/posts/create/route.js",           "client");
+  api.addFiles("areas/posts/edit/edit.jade",            "client");
+  api.addFiles("areas/posts/edit/edit.js",              "client");
+  api.addFiles("areas/posts/edit/route.js",             "client");
+  api.addFiles("areas/posts/drafts/drafts.jade",        "client");
+  api.addFiles("areas/posts/drafts/drafts.js",          "client");
+  api.addFiles("areas/posts/drafts/route.js",           "client");
 
   // Categories
-  api.addFiles("categories/categories.jade",            "client");
-  api.addFiles("categories/categories.js",              "client");
-  api.addFiles("categories/route.js",                   "client");
+  api.addFiles("areas/categories/categories.jade",      "client");
+  api.addFiles("areas/categories/categories.js",        "client");
+  api.addFiles("areas/categories/route.js",             "client");
 
   // Media
-  api.addFiles("media/route.js",                        "client");
-  api.addFiles("media/media.jade",                      "client");
-  api.addFiles("media/media.js",                        "client");
+  api.addFiles("areas/media/route.js",                  "client");
+  api.addFiles("areas/media/media.jade",                "client");
+  api.addFiles("areas/media/media.js",                  "client");
+
+  // Admin
+  api.addFiles("areas/settings/general/general.jade",   "client");
+  api.addFiles("areas/settings/general/general.js",     "client");
+  api.addFiles("areas/settings/general/route.js",       "client");
 });
