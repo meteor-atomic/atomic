@@ -1,0 +1,16 @@
+<template name="Notify">
+  {{#if size}}
+    <div class="notify-container">
+      {{#each notifications}}
+        {{> NotifyNotification}}
+      {{/each}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="NotifyNotification">
+  <div class="notify-notification {{type}}" id="{{_id}}">
+    <span class="message">{{message}}</span>
+    <span class="close-click" onclick="close">X</span>
+  </div>
+</template>

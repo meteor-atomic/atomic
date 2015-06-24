@@ -3,6 +3,9 @@
  */
 Router = FlowRouter;
 
+// Set hte root to the body element
+FlowLayout.setRoot('body');
+
 /**
  * Global subscriptions
  */

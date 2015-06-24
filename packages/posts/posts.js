@@ -16,27 +16,27 @@ _.extend(Posts, {
   /**
    * Create a post
    */
-  create: function(post) {
-    return Posts.collection.insert(post);
+  create: function(post, callback) {
+    return Posts.collection.insert(post, callback);
   },
 
   /**
    * Create a new draft post object
    */
-  draft: function() {
+  draft: function(callback) {
     return Posts.collection.insert({
       title:    "Draft",
       content:  "",
       draft: true
-    });
+    }, callback);
   },
 
   /**
    * Update a post entity with changes given in a key/value
    * pair.
    */
-  update: function(postId, changes) {
-    return Posts.collection.update({_id: postId}, {"$set": changes});
+  update: function(postId, changes, callback) {
+    return Posts.collection.update({_id: postId}, {"$set": changes}, callback);
   },
 
   /**
@@ -44,8 +44,8 @@ _.extend(Posts, {
    * @param {String} postId Post ids
    * @param {String} tag    Tag value
    */
-  addTags: function(postId, tags) {
-    Posts.collection.update({_id: postId}, {"$addToSet": {tags: {"$each": tags}}});
+  addTags: function(postId, tags, callback) {
+    Posts.collection.update({_id: postId}, {"$addToSet": {tags: {"$each": tags}}}, callback);
   },
 
   /**
@@ -53,24 +53,24 @@ _.extend(Posts, {
    * @param {String} postId Post ids
    * @param {String} tag    Tag value
    */
-  removeTag: function(postId, tag) {
-    Posts.collection.update({_id: postId}, {"$pull": {tags: tag}});
+  removeTag: function(postId, tag, callback) {
+    Posts.collection.update({_id: postId}, {"$pull": {tags: tag}}, callback);
   },
 
   /**
    * Return the top latest posts
    * @return {Mongo.Cursor}
    */
-  latest: function() {
-    return Posts.collection.find({}, {"$limit": 10})
+  latest: function(limit, callback) {
+    return Posts.collection.find({}, {"$limit": limit || 10}, callback)
   },
 
   /**
    * Return the top latest posts
    * @return {Mongo.Cursor}
    */
-  all: function() {
-    return Posts.collection.find();
+  all: function(callback) {
+    return Posts.collection.find({}, callback);
   },
 
   /**
@@ -78,8 +78,8 @@ _.extend(Posts, {
    * @param  {[type]} clause [description]
    * @return {[type]}        [description]
    */
-  where: function(clause) {
-    return Posts.collection.find(clause);
+  where: function(clause, callback) {
+    return Posts.collection.find(clause, {}, callback);
   },
 
   /**
@@ -87,15 +87,15 @@ _.extend(Posts, {
    * @param  {String} id Post id
    * @return {Document}
    */
-  get: function(id) {
-    return Posts.collection.findOne({_id: id});
+  get: function(id, callback) {
+    return Posts.collection.findOne({_id: id}, callback);
   },
 
   /**
    * Remove a post
    * @param  {Stirng} id object ID
    */
-  remove: function(id) {
-    return Posts.collection.remove({_id: id});
+  remove: function(id, callback) {
+    return Posts.collection.remove({_id: id}, callback);
   }
 });

@@ -14,6 +14,7 @@ Package.onUse(function(api) {
   api.use("atomic:posts");
   api.use("atomic:router");
   api.use("atomic:i18n", ["client", "server"]);
+  api.use("atomic:notify");
 
   // Templating
   api.use("templating", "client");

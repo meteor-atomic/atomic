@@ -10,6 +10,9 @@ Package.onUse(function(api) {
   api.use("underscore");
   api.use("aldeed:collection2@2.3.3");
   api.use("aldeed:simple-schema");
+
+  // Atomic Core
+  api.use("atomic:security");
   api.use("atomic:utilities");
 
   api.addFiles('categories.js');

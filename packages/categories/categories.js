@@ -18,8 +18,8 @@ _.extend(Categories, {
    * @param  {String} name        Unique category name
    * @param  {String} description Description for the category
    */
-  subscription: function(options) {
-  	return Meteor.subscribe("categories", options);
+  subscription: function(options, callback) {
+  	return Meteor.subscribe("categories", options, callback);
   },
 
 
@@ -28,27 +28,27 @@ _.extend(Categories, {
    * @param  {String} name        Unique category name
    * @param  {String} description Description for the category
    */
-  create: function(name, description, slug) {
+  create: function(name, description, slug, callback) {
   	return Categories.collection.insert({
   		name: name,
   		slug: Utilities.slugify(slug || name),
   		description: description
-  	});
+  	}, callback);
   },
 
   /**
    * Return all categories
    * @return {Cursor} Category listing
    */
-  all: function() {
-  	return Categories.collection.find();
+  all: function(callback) {
+  	return Categories.collection.find({}, callback);
   },
 
   /**
    * Return all categories
    * @return {Cursor} Category listing
    */
-  get: function(id) {
-  	return Categories.collection.findOne({_id: id});
+  get: function(id, callback) {
+  	return Categories.collection.findOne({_id: id}, callback);
   }
 });

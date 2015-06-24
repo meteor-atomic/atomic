@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 
   // Core router
   api.use("meteorhacks:flow-router@1.15.0", "client");
-  api.use("meteorhacks:flow-layout", "client");
+  api.use("meteorhacks:flow-layout@1.4.0", "client");
 
   // Routing declarations
   api.addFiles("router.js", "client");
