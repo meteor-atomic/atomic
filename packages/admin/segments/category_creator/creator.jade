@@ -1,0 +1,17 @@
+template(name="AdminCategoryCreatorSegment")
+  .ui.segment
+    h4
+      i.sitemap.icon
+      | Create
+    .ui.fluid.input
+      input(type="text", name="name", placeholder="Name..")
+      .ui.corner.label
+        i.asterisk.icon
+    br
+    .ui.fluid.input
+      input(type="text", name="description", placeholder="Description..")
+    br
+    .ui.fluid.input
+      input(type="text", name="slug", placeholder="Slug..", hidden)
+    //- br
+    button.ui.button.create Create

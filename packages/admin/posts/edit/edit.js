@@ -6,7 +6,9 @@ Template.AdminPostEditView.helpers({
    * Return the post context for this editor
    */
   post: function() {
-    return Posts.get(this.id());
+    return Posts.get(this.id(), function(err){
+      if(err) Notify.exception(err);
+    });
   },
 
   /**

@@ -18,13 +18,16 @@ Package.onUse(function(api) {
   /**
    * Require internal packages
    */
-  api.use("atomic:router",                                "client");
-  api.use("atomic:settings",                              "client");
-  api.use("atomic:i18n",                                  "client");
-  api.use("atomic:posts",                                 "client");
-  api.use("atomic:categories",                            "client");
-  api.use("atomic:users",                                 "client");
-  api.use("atomic:editor",                                "client");
+  api.use("atomic:router",                              "client");
+  api.use("atomic:settings",                            "client");
+  api.use("atomic:i18n",                                "client");
+  api.use("atomic:posts",                               "client");
+  api.use("atomic:categories",                          "client");
+  api.use("atomic:users",                               "client");
+  api.use("atomic:editor",                              "client");
+  api.use("atomic:utilities",                           "client");
+  api.use("atomic:notify",                              "client");
+  api.use("atomic:media",                               ["client", "server"]);
 
   /**
    * Custom packages
@@ -54,6 +57,8 @@ Package.onUse(function(api) {
   api.addFiles("segments/tags/tags.js",                 "client");
   api.addFiles("segments/category_picker/picker.jade",  "client");
   api.addFiles("segments/category_picker/picker.js",    "client");
+  api.addFiles("segments/category_creator/creator.jade","client");
+  api.addFiles("segments/category_creator/creator.js",  "client");
 
   // Dashbaord
   api.addFiles("dashboard/dashboard.jade",              "client");

@@ -13,6 +13,8 @@ Template.AdminTagsSegment.events({
       if(e.currentTarget.value.length > 0) {
         var tags = e.currentTarget.value.trim().split(" ");
         Posts.addTags(template.data.id, tags);
+      }else{
+        Notify.warning("Please enter a tag name");
       }
 
       // Clear the value out

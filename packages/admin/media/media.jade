@@ -1,18 +1,28 @@
 template(name="AdminMediaView")
-  .ui.six.doubling.cards
-    .card
-      .image
-        img(src="http://semantic-ui.com/images/avatar/large/elliot.jpg")
-      .content
-        a.header Picture of Jim
-        a.meta
-          a Uncategorised
-        .discription Description of the above photo.
-    .card
-      .image
-        img(src="http://semantic-ui.com/images/avatar/large/elliot.jpg")
-      .content
-        a.header Picture of Jim
-        a.meta
-          a Uncategorised
-        .discription Description of the above photo.
+
+  h2 Media Library
+  input(type="file", name='upload')
+  .ui.padded.grid
+    .doubling.five.column.row
+      +each media
+        .column
+          .ui.segment
+            .ui.red.left.corner.label
+              i.delete.icon
+            .ui.image
+              img(src="http://semantic-ui.com/images/avatar/large/matt.jpg")
+          br
+//- .content
+//-   .meta
+//-     .span Name: {{this.name}}
+//-     .span Extension: {{this.extension}}
+
+      //- {{log this}}
+      //- p Original name: {{this.name}}
+      //- p Original extension: {{this.extension}}
+      //- p Original type: {{this.type}}
+      //- p Original size: {{this.size}}
+      //- p Thumbnail name: {{this.name store="thumbs"}}
+      //- p Thumbnail extension: {{this.extension store="thumbs"}}
+      //- p Thumbnail type: {{this.type store="thumbs"}}
+      //- p Thumbnail size: {{this.size store="thumbs"}}

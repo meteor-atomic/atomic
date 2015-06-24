@@ -11,6 +11,8 @@ AdminRouter.route("/posts/drafts", {
     this.register("drafts", Posts.subscription({
       admin: true,
       query: {draft: true}
+    }, function(err){
+      if(err) Notify.exception(err);
     }));
   },
 

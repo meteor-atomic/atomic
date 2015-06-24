@@ -16,7 +16,9 @@ Template.AdminPostsView.helpers({
      * Exclude items marked as draft items
      * @type {Object}
      */
-    return Posts.where({draft: false});
+    return Posts.where({draft: false}, function(err){
+      if(err) Notify.exception(err);
+    });
   },
 
   title: function() {
@@ -32,7 +34,10 @@ Template.AdminPostsView.helpers({
    */
   author: function(id) {
     if(this.creator){
-      var user = Meteor.users.findOne({_id: this.creator});
+      var user = Meteor.users.findOne({_id: this.creator}, function(err){
+        if(err) Notify.exception(err);
+      });
+
       if(user){
         return user.profile.name;
       }

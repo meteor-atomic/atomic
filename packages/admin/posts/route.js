@@ -12,7 +12,9 @@ AdminRouter.route("/posts", {
    * Susbscriptions
    */
   subscriptions: function(params, queryParams) {
-    this.register("posts", Posts.subscription({admin:true}));
+    this.register("posts", Posts.subscription({admin:true}, function(err){
+      if(err) Notify.exception(err);
+    }));
   },
 
   /**
