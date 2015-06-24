@@ -3,13 +3,19 @@
  */
 var RSS = Npm.require('rss');
 
-// Declare network routes
+/**
+ * Declare network routes
+ */
 RoutePolicy.declare('/rss', 'network');
 
 /**
- * Intercept the web
+ * Intercept the web requests
+ * @param  {Request} req    Request Object
+ * @param  {Response} res   Response Ojbect
+ * @param  {Function} next  Next handler
  */
 WebApp.connectHandlers.use(function(req, res, next) {
+
 	/**
 	 * Validate that the index of /rss
 	 */
@@ -17,28 +23,62 @@ WebApp.connectHandlers.use(function(req, res, next) {
 		return next();
 	}
 
-	/**
-	 * Create a new RSS Handler
-	 */
-	var feed = new RSS({
-		title: "to implement",
-		description: "to implement",
-		feed_url: "/feed/",
-		site: "/"
-	});
+  /**
+   * Create the header options
+   */
+  var options = {};
+
+  /**
+   * Set the options
+   */
+  options.title       = "Website Title";
+  options.description = "Website Description";
+  options.generator   = "Atomic RSS";
+  options.feed_url    = Meteor.absoluteUrl("rss");
+  options.site_url    = Meteor.absoluteUrl();
+  options.image_url   = null/*site image asset*/;
+  options.author      = null/*Site Author*/;
+  options.categories  = null/*Category listing*/;
+  options.pubDate     = null/*Published date*/;
+  options.copyright   = null/*Site Copyright*/;
+  options.language    = null/*Site language from i18n*/;
+  options.ttl         = 8600/*RSS ttl from settings*/;
+
+  /**
+   * RSS Feed generator
+   * @type {RSS}
+   */
+	var rss = new RSS(options);
 
 	/**
-	 * Loop the latests post into the feed
-	 */
-	for(post in Posts.latest()) {
-		feed.item({
-			title: post.title
-		});
-	}
+   * Apply each post to the feed
+   */
+  _.each(Posts.all().fetch(), function(post){
+    console.log(post);
+    rss.item({
+      guid:             post._id,
+      title:            post.title || 'Untitled',
+      description:      post.summary || '',
+
+      // We should have a permilink helper that can transform an
+      // entity into a permilink
+      url:              Meteor.absoluteUrl("?post=" + post._id),
+
+      // Need to transform these from _id's to values
+      categories:       post.categories || [],
+      author:           post.author,
+
+      // date:             options.date,
+      // lat:              options.lat,
+      // long:             options.long,
+      // enclosure:        options.enclosure || false,
+      // custom_elements:  options.custom_elements || []
+    });
+  });
 
 	/**
 	 * Send the xml back to the client
 	 */
     res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
-    res.end(feed.xml({indent: true}));
+    res.end(rss.xml({indent: true}));
 });
