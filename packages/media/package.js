@@ -35,7 +35,8 @@ Package.onUse(function(api) {
   api.addFiles('stores/client.js',      ['client']);
 
   // Collections
-  api.addFiles('collections/common.js', ['client', 'server']);
+  api.addFiles('collections/client.js', ['client']);
+  api.addFiles('collections/server.js', ['server']);
 
   // Publications
   api.addFiles('publications/media.js', ['server']);

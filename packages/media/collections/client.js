@@ -8,6 +8,8 @@ _.extend(Media, {
    * @type {FS.Collection}
    */
   collection: new FS.Collection(Media.collectionId, {
-    stores: Stores
+    stores: [
+      Stores.Default
+    ]
   })
 });

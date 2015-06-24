@@ -6,4 +6,4 @@ FS.debug = true;
 /**
  * Add validators
  */
-Media.collection.files.permit(['insert', 'update', 'remove']).ifHasRole('admin').apply();
+Media.media.files.permit(['insert', 'update', 'remove']).ifHasRole('admin').apply();

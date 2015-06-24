@@ -1,10 +1,18 @@
 /**
  *
  */
-Stores = [
-  new FS.Store.FileSystem("media", {path: '~/media/originals'}),
-  new FS.Store.FileSystem("thumbnails", {
-    path: '~/media/thumbnails',
-    transformWrite: Transforms.thumbnailer
-  }),
-];
+Stores = {};
+
+/**
+ * Default Store
+ * @type {FS.Store}
+ */
+Stores.Default = new FS.Store.FileSystem("media", {path: '~/storage/media'});
+
+/**
+ * Create the Thumbnail stores
+ */
+Stores.Thumbnails = new FS.Store.FileSystem(Media.collectionId, {
+  path: "~/storage/thumbnails",
+  transformWrite: Transforms.thumbnailer
+});
