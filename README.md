@@ -1,6 +1,6 @@
 ## Atomic Blog
 
-A super clean blog application built using Meteor, the blog comes with manay features including
+A super clean blog application built using Meteor, the blog comes with many features including
 
 * Administration
   * Dashboard
