@@ -28,6 +28,12 @@ template(name="AdminSidebarSection")
         a(class="{{classes 'admin.media'}}", href="{{pathFor 'admin.media'}}") All Media
         a(class="{{classes 'admin.media.upload'}}", href="{{pathFor 'admin.media.upload'}}") Upload
 
+    b(class="item") Users
+      i.photo.icon
+      .menu
+        a(class="{{classes 'admin.users.manage'}}", href="{{pathFor 'admin.users.manage'}}") Manage
+        a(class="{{classes 'admin.media.create'}}", href="{{pathFor 'admin.media.create'}}") Create
+
     //- Settings
     b(class="item") Settings
       i.settings.icon
