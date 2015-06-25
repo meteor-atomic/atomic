@@ -53,6 +53,24 @@ _.extend(Posts, {
   },
 
   /**
+   * Add a category to a blog post
+   * @param {String} postId     Post id
+   * @param {String} categroy   Category id
+   */
+  addCategory: function(postId, category, callback) {
+    Posts.collection.update({_id: postId}, {"$addToSet": {categories: category}}, callback);
+  },
+
+  /**
+   * Add a category to a blog post
+   * @param {String} postId     Post ids
+   * @param {String} category   Tag value
+   */
+  removeCategory: function(postId, category, callback) {
+    Posts.collection.update({_id: postId}, {"$pull": {categories: category}}, callback);
+  },
+
+  /**
    * Return the top latest posts
    * @return {Mongo.Cursor}
    */
