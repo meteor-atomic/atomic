@@ -26,9 +26,10 @@ Package.onUse(function(api) {
   api.use("aldeed:simple-schema");
   api.use("chuangbo:marked@0.3.2");
 
-  api.addFiles('posts.js',              ["server", "client"]);
-  api.addFiles('posts_server.js',       ["server"]);
-  api.addFiles('posts_publication.js',  ["server"]);
-  api.addFiles('posts_client.js',       ["client"]);
+  api.addFiles('namespace.js',          ['server', 'client']);
+  api.addFiles('common/posts.js',       ["server", "client"]);
+  api.addFiles('client/posts.js',       ["client"]);
+  api.addFiles('server/posts.js',       ["server"]);
+  api.addFiles('server/publication.js', ["server"]);
   api.export("Posts");
 });

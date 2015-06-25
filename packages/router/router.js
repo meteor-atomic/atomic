@@ -1,8 +1,3 @@
-/**
- * Extend flow router to normalise the naming convention
- */
-Router = FlowRouter;
-
 // Set hte root to the body element
 FlowLayout.setRoot('body');
 

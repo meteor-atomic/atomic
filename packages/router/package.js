@@ -18,10 +18,11 @@ Package.onUse(function(api) {
   api.use("meteorhacks:flow-layout@1.4.0", "client");
 
   // Routing declarations
-  api.addFiles("router.js", "client");
-  api.addFiles("index.js", "client");
+  api.addFiles("namespace.js",  "client");
+  api.addFiles("router.js",     "client");
+  api.addFiles("index.js",      "client");
   api.addFiles("blog/index.js", "client");
-  api.addFiles("blog/post.js", "client");
+  api.addFiles("blog/post.js",  "client");
 
   api.export("Router");
 });

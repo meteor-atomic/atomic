@@ -1,9 +1,4 @@
 /**
- * Define the Posts structure
- */
-Posts = {};
-
-/**
  * Add the collection
  */
 _.extend(Posts, {
@@ -70,7 +65,7 @@ _.extend(Posts, {
    * @return {Mongo.Cursor}
    */
   all: function(callback) {
-    return Posts.collection.find({}, callback);
+    return Posts.collection.find({}, {}, callback);
   },
 
   /**
@@ -88,7 +83,7 @@ _.extend(Posts, {
    * @return {Document}
    */
   get: function(id, callback) {
-    return Posts.collection.findOne({_id: id}, callback);
+    return Posts.collection.findOne({_id: id}, {}, callback);
   },
 
   /**

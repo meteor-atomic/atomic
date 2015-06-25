@@ -17,9 +17,10 @@ Package.onUse(function(api) {
   api.use("atomic:security",            ["server"]);
 
   // Settings files
-  api.addFiles('settings.js',         ["server", "client"]);
-  api.addFiles('settings_server.js',  ["server"]);
-  api.addFiles('settings_client.js',  ["client"]);
+  api.addFiles('namespace.js',        ["server", "client"]);
+  api.addFiles('common/settings.js',  ["server", "client"]);
+  api.addFiles('server/settings.js',  ["server"]);
+  api.addFiles('client/settings.js',  ["client"]);
 
   /**
    * Export the settings

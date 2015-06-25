@@ -23,6 +23,6 @@ Package.onUse(function(api) {
   api.use("tap:i18n@1.5.0");
   api.imply("tap:i18n@1.5.0");
 
-  api.addFiles('i18n.js');
+  api.addFiles('namespace.js');
   api.export("I18n");
 });

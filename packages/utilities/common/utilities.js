@@ -1,9 +1,4 @@
 /**
- * Define the Utilities namespace
- */
-Utilities = {};
-
-/**
  * Add the utilities
  */
 _.extend(Utilities, {

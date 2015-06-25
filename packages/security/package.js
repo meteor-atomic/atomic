@@ -17,5 +17,6 @@ Package.onUse(function(api) {
   api.use("ongoworks:security@1.2.0");
 
   // Custom rules for the security package
-  api.addFiles('rules.js', ["server"]);
+  api.addFiles('namespace.js',    ["server"]);
+  api.addFiles('server/rules.js', ["server"]);
 });

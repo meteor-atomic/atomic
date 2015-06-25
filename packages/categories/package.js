@@ -15,8 +15,9 @@ Package.onUse(function(api) {
   api.use("atomic:security");
   api.use("atomic:utilities");
 
-  api.addFiles('categories.js');
-  api.addFiles('categories_server.js', ["server"]);
+  api.addFiles('namespace.js');
+  api.addFiles('common/categories.js', ['server', 'client']);
+  api.addFiles('server/categories.js', ["server"]);
 
   api.export("Categories");
 });

@@ -1,9 +1,4 @@
 /**
- * Define the Posts structure
- */
-Categories = {};
-
-/**
  * Add the collection
  */
 _.extend(Categories, {

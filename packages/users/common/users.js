@@ -1,9 +1,4 @@
 /**
- * Define the Users structure
- */
-Users = {};
-
-/**
  * Add the collection
  */
 _.extend(Users, {

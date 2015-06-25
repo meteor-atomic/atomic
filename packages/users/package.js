@@ -12,8 +12,9 @@ Package.onUse(function(api) {
   api.use("underscore");
   api.use("check");
 
-  api.addFiles('users.js',        ["server", "client"]);
-  api.addFiles('users_server.js', ["server"]);
-  api.addFiles('users_client.js', ["client"]);
+  api.addFiles('namespace.js',    ["server", "client"]);
+  api.addFiles('common/users.js', ["server", "client"]);
+  api.addFiles('server/users.js', ["server"]);
+  api.addFiles('client/users.js', ["client"]);
   api.export("Users");
 });

@@ -1,10 +1,5 @@
 /**
- * Define setttings object
- */
-Settings = {};
-
-/**
- *
+ * Common implementation
  */
 _.extend(Settings, {
 	/**
