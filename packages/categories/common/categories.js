@@ -1,5 +1,5 @@
 /**
- * Add the collection
+ * Common methods for the Categories model.
  */
 _.extend(Categories, {
   /**
@@ -9,9 +9,7 @@ _.extend(Categories, {
   collection:  new Meteor.Collection('categories'),
 
   /**
-   * Create a new category
-   * @param  {String} name        Unique category name
-   * @param  {String} description Description for the category
+   * @todo Move this to the client
    */
   subscription: function(options, callback) {
   	return Meteor.subscribe("categories", options, callback);

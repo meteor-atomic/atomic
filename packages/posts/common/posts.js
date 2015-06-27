@@ -1,5 +1,5 @@
 /**
- * Add the collection
+ * Common methods for the Posts model.
  */
 _.extend(Posts, {
   /**
@@ -9,29 +9,58 @@ _.extend(Posts, {
   collection:  new Meteor.Collection('posts'),
 
   /**
-   * Create a post
+   * Return the top latest posts
+   * @return {Mongo.Cursor}
+   */
+  all: function(callback) {
+    return Posts.collection.find({}, {}, callback);
+  },
+
+  /**
+   * Inserts a new post into the post collection
+   * @param  {Object}   post     Inital data to set in the collection
+   * @param  {Function} callback Optional callback
+   * @return {String}            MongoID for the new entity
    */
   create: function(post, callback) {
     return Posts.collection.insert(post, callback);
   },
 
   /**
-   * Create a new draft post object
+   * Return a single post
+   * @param  {String} id Post id
+   * @return {Document}
    */
-  draft: function(callback) {
-    return Posts.collection.insert({
-      title:    "Draft",
-      content:  "",
-      draft: true
-    }, callback);
+  get: function(id, callback) {
+    return Posts.collection.findOne({_id: id}, {}, callback);
   },
 
   /**
-   * Update a post entity with changes given in a key/value
-   * pair.
+   * Update an entities properties
+   * @param  {String}   id        Post id for the target entity
+   * @param  {Object}   changes   Key/Value pair of changes to be applied
+   * @param  {Function} callback  Callback
+   * @return {Number}
    */
-  update: function(postId, changes, callback) {
-    return Posts.collection.update({_id: postId}, {"$set": changes}, callback);
+  update: function(id, changes, callback) {
+    return Posts.collection.update({_id: postId}, {"$set": changes}, {multi: false}, callback);
+  },
+
+  /**
+   * Remove a post
+   * @param  {Stirng} id object ID
+   */
+  remove: function(id, callback) {
+    return Posts.collection.remove({_id: id}, callback);
+  },
+
+  /**
+   * Create a new draft post object
+   * @param  {Function} callback Callback
+   * @return {String}            MongoID for the new draft draft entity.
+   */
+  draft: function(callback) {
+    return Posts.create({title: "Draft", content: "", draft: true}, callback);
   },
 
   /**
@@ -79,15 +108,7 @@ _.extend(Posts, {
   },
 
   /**
-   * Return the top latest posts
-   * @return {Mongo.Cursor}
-   */
-  all: function(callback) {
-    return Posts.collection.find({}, {}, callback);
-  },
-
-  /**
-   * Return the latest published posts
+   * Return the latest published Posts
    * @return {Mongo.Cursor}
    */
   published: function(callback) {
@@ -95,28 +116,11 @@ _.extend(Posts, {
   },
 
   /**
-   * Find
+   * Find a set of post based on a selection
    * @param  {[type]} clause [description]
    * @return {[type]}        [description]
    */
   where: function(clause, callback) {
     return Posts.collection.find(clause, {}, callback);
-  },
-
-  /**
-   * Return a single post
-   * @param  {String} id Post id
-   * @return {Document}
-   */
-  get: function(id, callback) {
-    return Posts.collection.findOne({_id: id}, {}, callback);
-  },
-
-  /**
-   * Remove a post
-   * @param  {Stirng} id object ID
-   */
-  remove: function(id, callback) {
-    return Posts.collection.remove({_id: id}, callback);
   }
 });

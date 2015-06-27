@@ -24,6 +24,7 @@ Package.onUse(function(api) {
 
   api.addFiles('namespace.js',          ['server', 'client']);
   api.addFiles('common/posts.js',       ["server", "client"]);
+  api.addFiles('common/schema.js',      ["server", "client"]);
   api.addFiles('client/posts.js',       ["client"]);
   api.addFiles('server/posts.js',       ["server"]);
   api.addFiles('server/publication.js', ["server"]);

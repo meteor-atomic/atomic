@@ -11,7 +11,6 @@ _.extend(Categories, {
   	slug: {type: String, label: "Category slug", index: true, max: 45},
   	description: {type: String, max: 1024}
   })
-
 });
 
 // Category permissions
