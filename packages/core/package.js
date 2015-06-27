@@ -2,20 +2,19 @@ Package.describe({
   name: 'atomic:core',
   version: '0.5.0',
   summary: 'Core wrapper package to connect all the modules together',
-  git: 'https://github.com/robertpitt/meteorpress'
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  // Packages that only core depends on, these are usually
-  // system and backend only packages
+  // Installation runner, this will be removed and replaced with
+  // atomic:installer which will provide a UI Based installation process.
   api.use("atomic:installation",  ["server"]);
-  api.use("atomic:rss",           ["server"]);
 
-  // We need to imply accounts outside the package scope
-  // so that frontend accounts is available.
-  api.imply("atomic:accounts",      ["server", "client"]);
+  // XXX I think this will need to be moved to the atomic:client package
+  // at some point
+  api.use("atomic:rss",           ["server"]);
 
   // Load the client application
   api.use("atomic:client");

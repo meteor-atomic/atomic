@@ -2,7 +2,7 @@ Package.describe({
   name: 'atomic:i18n',
   version: '0.5.0',
   summary: 'i18n package, wraps and configures TAPI18n',
-  git: 'https://github.com/robertpitt/meteorpress'
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {

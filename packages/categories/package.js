@@ -2,7 +2,7 @@ Package.describe({
   name: 'atomic:categories',
   version: '0.5.0',
   summary: 'Category models and utilities',
-  git: 'https://github.com/robertpitt/meteorpress'
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {

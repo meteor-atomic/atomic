@@ -2,9 +2,9 @@ Package.describe({
   name: 'atomic:editor',
   version: '0.5.0',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'A wrapper package for the Lepture Editor',
   // URL to the Git repository containing the source code for this package.
-  git: ''
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {

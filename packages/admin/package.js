@@ -2,7 +2,7 @@ Package.describe({
   name: 'atomic:admin',
   version: '0.5.0',
   summary: 'Blog adminsitration area',
-  git: 'https://github.com/robertpitt/meteorpress',
+  git: 'https://github.com/meteor-atomic/atomic',
 });
 
 Package.onUse(function(api) {
@@ -28,6 +28,7 @@ Package.onUse(function(api) {
   api.use("atomic:utilities",                           "client");
   api.use("atomic:notify",                              "client");
   api.use("atomic:media",                               ["client", "server"]);
+  api.use("atomic:accounts");
 
   /**
    * Custom packages

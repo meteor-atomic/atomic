@@ -2,7 +2,7 @@ Package.describe({
   name: 'atomic:installation',
   version: '0.5.0',
   summary: 'Development only, kicks in after mteor reset to populate some data.',
-  git: 'https://github.com/robertpitt/meteorpress'
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {

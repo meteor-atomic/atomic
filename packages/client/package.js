@@ -2,7 +2,7 @@ Package.describe({
   name: 'atomic:client',
   version: '0.5.0',
   summary: 'Client side application',
-  git: 'https://github.com/robertpitt/meteorpress'
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {
@@ -13,16 +13,14 @@ Package.onUse(function(api) {
   api.use("atomic:categories");
   api.use("atomic:posts");
   api.use("atomic:router");
-  api.use("atomic:i18n", ["client", "server"]);
+  api.use("atomic:i18n");
   api.use("atomic:notify");
+  api.use("atomic:accounts");
 
   // Templating
   api.use("templating", "client");
   api.use("mquandalle:jade@0.4.3");
   api.use("chuangbo:marked@0.3.2");
-
-  // Routing
-  api.use("arillo:flow-router-helpers");
 
   // UI
   api.use("semantic:ui-css@1.12.3", "client");

@@ -1,13 +1,8 @@
 Package.describe({
   name: 'atomic:posts',
   version: '0.5.0',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  summary: 'Atmoic posts api, this is the model used to read/write/update and delete posts',
+  git: 'https://github.com/meteor-atomic/atomic'
 });
 
 Package.onUse(function(api) {
@@ -16,7 +11,8 @@ Package.onUse(function(api) {
   // Meteor Core
   api.use("underscore");
 
-  // Blog
+  // Internal
+  api.use("atomic:accounts");
   api.use("atomic:utilities");
   api.use("atomic:categories");
   api.use("atomic:security");
