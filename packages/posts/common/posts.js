@@ -87,6 +87,14 @@ _.extend(Posts, {
   },
 
   /**
+   * Return the latest published posts
+   * @return {Mongo.Cursor}
+   */
+  published: function(callback) {
+    return Posts.where({published: true, draft: false}, callback);
+  },
+
+  /**
    * Find
    * @param  {[type]} clause [description]
    * @return {[type]}        [description]
