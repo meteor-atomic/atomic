@@ -6,3 +6,5 @@
 
 meteor-platform
 atomic:core
+atomic:packages
+atomic:notify
