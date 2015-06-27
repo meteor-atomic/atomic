@@ -10,9 +10,7 @@ template(name="AdminPostsView")
         th Title
         th Author
         th Published
-        th
-          i.comments.icon
-        th Date
+        th Last Updated
     tbody
       +each posts
         tr
@@ -26,7 +24,5 @@ template(name="AdminPostsView")
               i.large.green.checkmark.icon
             +else
               i.large.remove.icon
-          td
-            .ui.blue.label 0
           td(alt=updatedAt, title=updatedAt) #{date}
     tfoot
