@@ -1,10 +1,6 @@
 /**
- * Load the RSS Lib
- */
-var RSS = Npm.require('rss');
-
-/**
- * Declare network routes
+ * Declare the route as a network, this tell's Meteor *NOT* to serve
+ * the index.html used to bootstrap an application.
  */
 RoutePolicy.declare('/rss', 'network');
 
@@ -24,61 +20,54 @@ WebApp.connectHandlers.use(function(req, res, next) {
 	}
 
   /**
-   * Create the header options
+   * Create an XML Element
+   * @see http://cyber.law.harvard.edu/rss/rss.html
    */
-  var options = {};
+  var xml = XmlBuilder.create('rss', {'@version': "2.0"});
 
   /**
-   * Set the options
+   * Create RSS Feed
+   * @var {XmlBuilder}
    */
-  options.title       = "Website Title";
-  options.description = "Website Description";
-  options.generator   = "Atomic RSS";
-  options.feed_url    = Meteor.absoluteUrl("rss");
-  options.site_url    = Meteor.absoluteUrl();
-  options.image_url   = null/*site image asset*/;
-  options.author      = null/*Site Author*/;
-  options.categories  = null/*Category listing*/;
-  options.pubDate     = null/*Published date*/;
-  options.copyright   = null/*Site Copyright*/;
-  options.language    = null/*Site language from i18n*/;
-  options.ttl         = 8600/*RSS ttl from settings*/;
+  var channel = xml.ele('channel');
 
-  /**
-   * RSS Feed generator
-   * @type {RSS}
-   */
-	var rss = new RSS(options);
+  // Required elements
+  channel.ele("title",        "Website Title");
+  channel.ele("link",         Meteor.absoluteUrl());
+  channel.ele("description",  "Website Description");
 
-	/**
-   * Apply each post to the feed
-   */
-  _.each(Posts.all().fetch(), function(post){
-    console.log(post);
-    rss.item({
-      guid:             post._id,
-      title:            post.title || 'Untitled',
-      description:      post.summary || '',
+  // Optional elements
+  channel.ele("language",       "en-us");
+  channel.ele("lastBuildDate",  (new Date()).toString());
+  channel.ele("generator",      "Atomic 1.0");
+  channel.ele("docs",           "http://cyber.law.harvard.edu/rss/rss.html");
+  channel.ele("feed_url",       Meteor.absoluteUrl("rss"));
 
-      // We should have a permilink helper that can transform an
-      // entity into a permilink
-      url:              Meteor.absoluteUrl("?post=" + post._id),
+  // Process the post items
+  _.each(Posts.published().fetch(), function(post){
 
-      // Need to transform these from _id's to values
-      categories:       post.categories || [],
-      author:           post.author,
+    // Create item entity
+    var item = channel.ele("item");
 
-      // date:             options.date,
-      // lat:              options.lat,
-      // long:             options.long,
-      // enclosure:        options.enclosure || false,
-      // custom_elements:  options.custom_elements || []
-    });
+    // Generate the item scope for this post
+    item.ele("guid",        post._id);
+    item.ele("title",       post.title);
+    item.ele("link",        Meteor.absoluteUrl("?" + post._id)); // What has it come too?
+    item.ele("description", "");
+
+    // XXX do better here!!
+    if(post.creator) {
+      var profile           = Users.getProfile(post.creator) || {};
+      item.ele("author",    profile.name);
+    }
+    // item.ele("category",    "");
+    // item.ele("comments",    "");
+    item.ele("pubDate",     post.createdAt.toString());
   });
 
 	/**
 	 * Send the xml back to the client
 	 */
-    res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
-    res.end(rss.xml({indent: true}));
+  res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
+  res.end(xml.end({pretty: true}));
 });
