@@ -57,7 +57,7 @@ _.extend(Askimet, {
    * @return {Boolean}
    */
   checkSpam: function(comment) {
-    return Askimet.request("comment-check", comment) == 'true';
+    return Askimet.request("comment-check", comment).content == 'true';
   },
 
   /**
