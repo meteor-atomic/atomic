@@ -5,6 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-atomic:core
-atomic:packages
-atomic:notify
+atomic:atomic
+atomic:client
+atomic:admin
+atomic:installation
