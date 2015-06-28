@@ -9,3 +9,4 @@ atomic:atomic
 atomic:client
 atomic:admin
 atomic:installation
+atomic:askimet

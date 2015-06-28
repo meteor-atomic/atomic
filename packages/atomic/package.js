@@ -9,7 +9,6 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   // Core
-  // api.use('blaze');
   api.use('tracker');
   api.use("templating");
   api.use("underscore");

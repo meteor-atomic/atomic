@@ -65,7 +65,7 @@ _.extend(Posts, {
     /**
      * Raw markdown content
      */
-    content: { type: String, label: "Markdown version of the post", optional: true},
+    content: { type: String, label: "Markdown version of the post", optional: true, defaultValue: ""},
 
     /**
      * @todo
@@ -122,41 +122,44 @@ _.extend(Posts, {
     /**
      * Category id's that the post belongs too.
      */
-    categories: {type: [Categories.collection], optional: true, defaultValue: []},
+    categories: {type: [String], optional: false, defaultValue: []},
 
-    // /**
-    //  * Revision History
-    //  */
-    // revisions: {type: [Object], optional:true,autoValue: function() {
-    //     var content = this.field("content");
+    /**
+     * Revision History
+     */
+    revisions: {type: [Object], optional: true, autoValue: function() {
+        var content = this.field("content");
 
-    //     /**
-    //      * @todo Add editor in here
-    //      */
-    //     if (content.isSet) {
-    //       if(this.isInsert && content.value != "") {
-    //         return [{ date: new Date, content: content.value, author: this.userId }];
-    //       }
+        /**
+         * @todo Add editor in here
+         */
+        if (content.isSet) {
+          if(this.isInsert) {
+            if(content.value != "")
+              return [{ date: new Date, content: content.value, author: this.userId }];
+            return this.unset();
+          }
 
-    //       return { $push: { date: new Date, content: content.value, author: this.userId } };
-    //     }
-    //   }
-    // },
+          // @todo Fix this push issue.
+          return { $push: { date: new Date, content: content.value, author: this.userId } };
+        }
+      }
+    },
 
-    // /**
-    //  * Auto populated by revisions pass
-    //  */
-    // 'revisions.$.date': { type: Date, optional: true },
+    /**
+     * Auto populated by revisions pass
+     */
+    'revisions.$.date': { type: Date, optional: true },
 
-    // /**
-    //  * Auto populated by revisions pass
-    //  */
-    // 'revisions.$.content': { type: String, optional: true },
+    /**
+     * Auto populated by revisions pass
+     */
+    'revisions.$.content': { type: String, optional: true },
 
-    // /**
-    //  * Auto populated by revisions pass
-    //  */
-    // 'revisions.$.author': { type: String, optional: true },
+    /**
+     * Auto populated by revisions pass
+     */
+    'revisions.$.author': { type: String, optional: true },
   })
 });
 

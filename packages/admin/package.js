@@ -24,6 +24,7 @@ Package.onUse(function(api) {
   api.use("atomic:i18n",                                "client");
   api.use("atomic:posts",                               "client");
   api.use("atomic:categories",                          "client");
+  api.use("atomic:comments",                            "client");
   api.use("atomic:users",                               "client");
   api.use("atomic:editor",                              "client");
   api.use("atomic:utilities",                           "client");

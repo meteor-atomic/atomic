@@ -43,7 +43,7 @@ _.extend(Posts, {
    * @return {Number}
    */
   update: function(id, changes, callback) {
-    return Posts.collection.update({_id: postId}, {"$set": changes}, {multi: false}, callback);
+    return Posts.collection.update({_id: id}, {"$set": changes}, {multi: false}, callback);
   },
 
   /**
@@ -60,43 +60,43 @@ _.extend(Posts, {
    * @return {String}            MongoID for the new draft draft entity.
    */
   draft: function(callback) {
-    return Posts.create({title: "Draft", content: "", draft: true}, callback);
+    return Posts.create({title: "Draft", draft: true}, callback);
   },
 
   /**
    * Add a tag to a blog post
-   * @param {String} postId Post ids
+   * @param {String} id Post ids
    * @param {String} tag    Tag value
    */
-  addTags: function(postId, tags, callback) {
-    Posts.collection.update({_id: postId}, {"$addToSet": {tags: {"$each": tags}}}, callback);
+  addTags: function(id, tags, callback) {
+    Posts.collection.update({_id: id}, {"$addToSet": {tags: {"$each": tags}}}, callback);
   },
 
   /**
    * Add a tag to a blog post
-   * @param {String} postId Post ids
+   * @param {String} id Post ids
    * @param {String} tag    Tag value
    */
-  removeTag: function(postId, tag, callback) {
-    Posts.collection.update({_id: postId}, {"$pull": {tags: tag}}, callback);
+  removeTag: function(id, tag, callback) {
+    Posts.collection.update({_id: id}, {"$pull": {tags: tag}}, callback);
   },
 
   /**
    * Add a category to a blog post
-   * @param {String} postId     Post id
+   * @param {String} id     Post id
    * @param {String} categroy   Category id
    */
-  addCategory: function(postId, category, callback) {
-    Posts.collection.update({_id: postId}, {"$addToSet": {categories: category}}, callback);
+  addCategory: function(id, category, callback) {
+    Posts.collection.update({_id: id}, {"$addToSet": {categories: category}}, callback);
   },
 
   /**
    * Add a category to a blog post
-   * @param {String} postId     Post ids
+   * @param {String} id     Post ids
    * @param {String} category   Tag value
    */
-  removeCategory: function(postId, category, callback) {
-    Posts.collection.update({_id: postId}, {"$pull": {categories: category}}, callback);
+  removeCategory: function(id, category, callback) {
+    Posts.collection.update({_id: id}, {"$pull": {categories: category}}, callback);
   },
 
   /**
