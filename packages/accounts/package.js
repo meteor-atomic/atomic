@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   //       are being wrapped and exposed via a controlled api...
   //       as the acocunt packages are synonymous with Accounts api
   //       we let the Accounts and Metoer.loginWith* be the core api.
+  api.imply("accounts-base");
 
   // Currently we are only looking at surporting google
   // in the future we will open this up to twitter

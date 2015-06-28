@@ -12,6 +12,10 @@ Package.onUse(function(api) {
   // atomic:installer which will provide a UI Based installation process.
   api.use("atomic:installation",  ["server"]);
 
+  // XXX Accounts seem to assume that it's added globally so signing in fails
+  // we need to imply it to the glboal namespace
+  api.use("atomic:accounts");
+
   // XXX I think this will need to be moved to the atomic:client package
   // at some point
   api.use("atomic:rss",           ["server"]);
