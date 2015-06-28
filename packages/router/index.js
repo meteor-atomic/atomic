@@ -12,6 +12,6 @@ Router.route('/', {
      * @return {void}
      */
     action: function(params, queryParams) {
-        FlowRouter.go("blog");
+      FlowRouter.go("blog");
     }
 });

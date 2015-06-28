@@ -8,7 +8,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  // Router subscriptions
+  // Core + Subscriptions
+  api.use("atomic:atomic");
   api.use("atomic:posts");
   api.use("atomic:categories");
   api.use("atomic:settings");

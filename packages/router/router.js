@@ -14,6 +14,7 @@ Router.subscriptions = function() {
  */
 Router.notFound = {
   action: function() {
+    Atomic.setTile("404 Not Found!");
     FlowLayout.render("DefaultLayout",  {
       view: "404View"
     })
