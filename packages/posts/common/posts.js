@@ -23,7 +23,16 @@ _.extend(Posts, {
    * @return {String}            MongoID for the new entity
    */
   create: function(post, callback) {
-    return Posts.collection.insert(post, callback);
+    /**
+     * @see https://github.com/aldeed/meteor-collection2/issues/62
+     *      Seems that in order to use the schema to generate autoValues and defaultValue's
+     *      we have to call clean on the client.
+     */
+    if(Meteor.isClient)
+      post = Posts.schema.clean(post);
+
+    // Run the insert
+    return Posts.collection.insert(Posts.schema.clean(post), callback);
   },
 
   /**
