@@ -20,6 +20,10 @@ AdminRouter.route("/posts/drafts", {
    * Render drafts view
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("Drafts " + Atomic.seperator + " Posts");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminPostDraftsView"
     });

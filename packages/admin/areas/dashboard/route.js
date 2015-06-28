@@ -11,6 +11,10 @@ AdminRouter.route("/dashboard", {
   /**
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("Dashboard");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminDashboardView"
     });

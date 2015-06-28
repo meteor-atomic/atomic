@@ -17,6 +17,10 @@ AdminRouter.route("/media", {
   /**
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("Media");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminMediaView"
     });

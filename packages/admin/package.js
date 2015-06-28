@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   /**
    * Require internal packages
    */
+  api.use("atomic:atomic",                              "client");
   api.use("atomic:router",                              "client");
   api.use("atomic:settings",                            "client");
   api.use("atomic:i18n",                                "client");

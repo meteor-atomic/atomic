@@ -20,6 +20,10 @@ AdminRouter.route("/posts", {
   /**
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("Posts");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminPostsView"
     });

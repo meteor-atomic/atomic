@@ -18,6 +18,10 @@ AdminRouter.route("/categories", {
   /**
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("Categories");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminCategoriesView"
     });

@@ -13,6 +13,10 @@ AdminRouter.route("/settings/general", {
    * Render drafts view
    */
   action: function(params, queryParams) {
+    // Set the page title
+    Atomic.setTitle("General " + Atomic.seperator + " Settings");
+
+    // Render the view
     FlowLayout.render("DefaultAdminLayout", {
       view: "AdminSettingsGeneralView"
     });
