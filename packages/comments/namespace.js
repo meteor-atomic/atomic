@@ -1,0 +1,4 @@
+/**
+ * @namespace Comments
+ */
+Comments = {};
