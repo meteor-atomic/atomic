@@ -41,11 +41,7 @@ View.helpers({
    * @return {Boolean}
    */
   checked: function() {
-    var post_id = Template.instance().data.id;
-
-    // XXX This is a bug when creating posts.
-    return Posts.get(post_id).categories.indexOf(this._id) > -1
-    // return (Posts.get(post_id).categories || []).indexOf(this._id) > -1
+    return Posts.get(Template.instance().data.id).categories.indexOf(this._id) > -1
   }
 });
 

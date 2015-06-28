@@ -127,39 +127,39 @@ _.extend(Posts, {
     /**
      * Revision History
      */
-    revisions: {type: [Object], optional: true, autoValue: function() {
-        var content = this.field("content");
+    // revisions: {type: [Object], optional: true, autoValue: function() {
+    //     var content = this.field("content");
 
-        /**
-         * @todo Add editor in here
-         */
-        if (content.isSet) {
-          if(this.isInsert) {
-            if(content.value != "")
-              return [{ date: new Date, content: content.value, author: this.userId }];
-            return this.unset();
-          }
+    //     /**
+    //      * @todo Add editor in here
+    //      */
+    //     if (content.isSet) {
+    //       if(this.isInsert) {
+    //         if(content.value != "")
+    //           return [{ date: new Date, content: content.value, author: this.userId }];
+    //         return this.unset();
+    //       }
 
-          // @todo Fix this push issue.
-          return { $push: { date: new Date, content: content.value, author: this.userId } };
-        }
-      }
-    },
+    //       // @todo Fix this push issue.
+    //       return { $push: { date: new Date, content: content.value, author: this.userId } };
+    //     }
+    //   }
+    // },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.date': { type: Date, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.date': { type: Date, optional: true },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.content': { type: String, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.content': { type: String, optional: true },
 
-    /**
-     * Auto populated by revisions pass
-     */
-    'revisions.$.author': { type: String, optional: true },
+    // /**
+    //  * Auto populated by revisions pass
+    //  */
+    // 'revisions.$.author': { type: String, optional: true },
   })
 });
 
