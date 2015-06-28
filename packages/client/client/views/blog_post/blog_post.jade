@@ -4,6 +4,7 @@ template(name="BlogPostView")
     //- Blog article
     div.eleven.wide.column
       +with post
+        {{setTitle title}}
         div(class="ui attached segment")
           h2=title
           img(class="ui centered huge rounded image", src="http://graio.com/templates/band/images/assets/blog/post.jpg")

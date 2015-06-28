@@ -9,6 +9,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   // Internal
+  api.use("atomic:atomic");
   api.use("atomic:accounts");
   api.use("atomic:categories");
   api.use("atomic:posts");
@@ -16,6 +17,7 @@ Package.onUse(function(api) {
   api.use("atomic:i18n");
   api.use("atomic:notify");
   api.use("atomic:accounts");
+  api.use("atomic:rss");
 
   // Templating
   api.use("templating", "client");
