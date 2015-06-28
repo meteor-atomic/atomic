@@ -1,0 +1,3 @@
+[submodule "packages/notify"]
+	path = packages/notify
+	url = https://github.com/meteor-atomic/atomic-notify.git
