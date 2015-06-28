@@ -14,7 +14,7 @@ _.extend(Users, {
     check(user, Match.OneOf(String, Object))
     check(Roles, Array);
 
-    return Roles.addUsersToRoles(user, roles, group);
+    return Roles.addUsersToRoles(user, roles, group || Roles.GLOBAL_GROUP);
   },
 
   /**
@@ -28,15 +28,18 @@ _.extend(Users, {
     check(user, Match.OneOf(String, Object))
     check(Roles, Array);
 
-    return Roles.removeUsersFromRoles(user, roles, group);
+    return Roles.removeUsersFromRoles(user, roles, group || Roles.GLOBAL_GROUP);
   },
 
   /**
    * Get a user's roles
+   * @param  {String} user  User ID
+   * @param  {String} group  Optional group
+   * @return {Array}        Array of roles.
    */
   roles: function(user, group) {
     check(user, Match.OneOf(String, Object))
 
-    return Roles.getRolesForUser(user, roles);
+    return Roles.getRolesForUser(user, group || Roles.GLOBAL_GROUP);
   }
 });
