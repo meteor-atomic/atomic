@@ -22,15 +22,19 @@ Package.onUse(function(api) {
   api.use("atomic:router",                              "client");
   api.use("atomic:settings",                            "client");
   api.use("atomic:i18n",                                "client");
-  api.use("atomic:posts",                               "client");
-  api.use("atomic:categories",                          "client");
-  api.use("atomic:comments",                            "client");
-  api.use("atomic:users",                               "client");
   api.use("atomic:editor",                              "client");
   api.use("atomic:utilities",                           "client");
   api.use("atomic:notify",                              "client");
-  api.use("atomic:media",                               ["client", "server"]);
   api.use("atomic:accounts");
+
+  /**
+   * Data pacakges
+   */
+  api.use("atomic:posts",                               ["client", "server"]);
+  api.use("atomic:categories",                          ["client", "server"]);
+  api.use("atomic:comments",                            ["client", "server"]);
+  api.use("atomic:users",                               ["client", "server"]);
+  api.use("atomic:media",                               ["client", "server"]);
 
   /**
    * Custom packages
@@ -40,6 +44,9 @@ Package.onUse(function(api) {
   // Temporary until it's seperated and wrapped like
   // the Router is.
   api.use("meteorhacks:flow-layout",                    "client");
+
+  // Expose the admin publications
+  api.addFiles("publications.js",                       "server");
 
   // Extend the base router
   api.addFiles("router.js",                             "client");
@@ -84,10 +91,20 @@ Package.onUse(function(api) {
   api.addFiles("areas/categories/categories.js",        "client");
   api.addFiles("areas/categories/route.js",             "client");
 
+  // Comments
+  api.addFiles("areas/comments/comments.jade",          "client");
+  api.addFiles("areas/comments/comments.js",            "client");
+  api.addFiles("areas/comments/route.js",               "client");
+
   // Media
   api.addFiles("areas/media/route.js",                  "client");
   api.addFiles("areas/media/media.jade",                "client");
   api.addFiles("areas/media/media.js",                  "client");
+
+  // Users
+  api.addFiles("areas/users/users.jade",                "client");
+  api.addFiles("areas/users/users.js",                  "client");
+  api.addFiles("areas/users/route.js",                  "client");
 
   // Admin
   api.addFiles("areas/settings/general/general.jade",   "client");

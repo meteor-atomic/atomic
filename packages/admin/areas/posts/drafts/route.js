@@ -8,12 +8,7 @@ AdminRouter.route("/posts/drafts", {
    * Setup draft subscriptions
    */
   subscriptions: function() {
-    this.register("drafts", Posts.subscription({
-      admin: true,
-      query: {draft: true}
-    }, function(err){
-      if(err) Notify.exception(err);
-    }));
+    this.register("drafts", Meteor.subscribe("admin.drafts"));
   },
 
   /**

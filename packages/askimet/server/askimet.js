@@ -7,31 +7,31 @@ _.extend(Askimet, {
    * Askimet api key
    * @type {String}
    */
-  key: Meteor.settings.askimet_key || "",
+  key: Meteor.settings.askimet_key || process.env.ASKIMET_KEY || "",
 
   /**
    * Askimet blog, defaults to the blog url
    * @type {String}
    */
-  blog: Meteor.settings.askimet_blog || Meteor.absoluteUrl(),
+  blog: Meteor.settings.askimet_blog || process.env.ASKIMET_BLOG || Meteor.absoluteUrl(),
 
   /**
    * Askimet protocol
    * @type {String}
    */
-  protocol: Meteor.settings.askimet_protocol || "https",
+  protocol: Meteor.settings.askimet_protocol || process.env.ASKIMET_PROTOCOL || "https",
 
   /**
    * Askimet domain
    * @type {String}
    */
-  server: Meteor.settings.askimet_server || "rest.akismet.com",
+  server: Meteor.settings.askimet_server || process.env.ASKIMET_SERVER || "rest.akismet.com",
 
   /**
    * Askimet api version
    * @type {String}
    */
-  version: Meteor.settings.askimet_version || "1.1",
+  version: Meteor.settings.askimet_version || process.env.ASKIMET_VERSION || "1.1",
 
   /**
    * Our useragent

@@ -9,13 +9,14 @@ _.extend(Users, {
   schema : new SimpleSchema({
     username: {
         type: String,
+        unique: true,
         regEx: /^[a-z0-9A-Z_]{3,15}$/
     },
     emails: {
         type: [Object],
 
-        // As we are using passwordless authentication such as google we have to make
-        // this optional.
+        // We keep this true as the standardiser will populated this from services such as google
+        // and twitter
         optional: true
     },
     "emails.$.address": {
@@ -46,7 +47,7 @@ _.extend(Users, {
         },
         gender: {
           type: String,
-          allowedValues: ['Male', 'Female'],
+          allowedValues: ['male', 'female', 'unknown'],
           optional: true
         },
         organization : {
@@ -73,6 +74,10 @@ _.extend(Users, {
               regEx: /^[A-Z]{2}$/
             }
           }),
+          optional: true
+        },
+        locale: {
+          type: String,
           optional: true
         }
       }),

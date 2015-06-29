@@ -1,0 +1,33 @@
+template(name="AdminUsersView")
+  h2.ui.header
+    i.pencil.icon
+    .content Users
+  table(class="ui table")
+    thead
+      tr
+        th
+          input(type="checkbox", class="ui small checkbox checkall")
+        th Name
+        th Role
+        th Registration Date
+        th Verified
+        th Services
+    tbody
+      +each users
+        tr
+          td
+            input(type="checkbox", class="ui small checkbox")
+          td
+            a(href="{{pathFor 'admin.users.edit' id=this._id}}") {{profile.name}}
+          td {{role}}
+          td {{createdAt}}
+          td
+            +if verified
+              i.large.green.checkmark.icon
+            +else
+              i.large.red.warning.icon
+          td
+            +each services
+              i(class=serviceIcon)
+
+    tfoot

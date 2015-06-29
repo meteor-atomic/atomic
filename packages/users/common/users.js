@@ -8,6 +8,12 @@ _.extend(Users, {
    */
   collection:  Meteor.users,
 
+  /**
+   * Fetch a user account
+   */
+  all: function(callback) {
+    return Users.collection.find({}, {}, callback);
+  },
 
   /**
    * Fetch a user account

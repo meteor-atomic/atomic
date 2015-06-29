@@ -10,6 +10,8 @@ Package.onUse(function(api) {
 
   // Core
   api.use("underscore");
+  api.use("atomic:security");
+  api.use("atomic:askimet");
 
   // Schema
   api.use("aldeed:collection2@2.3.3");
@@ -21,6 +23,9 @@ Package.onUse(function(api) {
   // Common
   api.addFiles('common/comments.js',  ['client', 'server']);
   api.addFiles('common/schema.js',    ['client', 'server']);
+
+  // Client Side
+  api.addFiles('client/comments.js',  ['client']);
 
   // Server
   api.addFiles('server/comments.js',  ['server']);

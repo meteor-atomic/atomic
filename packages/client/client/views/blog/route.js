@@ -1,9 +1,9 @@
-Router.route('/blog/:id/:slug?', {
+Router.route('/blog', {
     /**
      * Index route id
      * @type {String}
      */
-    name: "blog.post",
+    name: "blog",
 
     /**
      * Attach route level subscriptions
@@ -17,9 +17,8 @@ Router.route('/blog/:id/:slug?', {
       /**
        * Subsribe to posts
        */
-      this.register('post', Posts.subscription({
-        query: {_id : params.id}
-      }));
+      this.register('posts',      Meteor.subscribe("blog.posts", params));
+      this.register('categories', Meteor.subscribe("blog.categories"));
     },
 
     /**
@@ -29,9 +28,7 @@ Router.route('/blog/:id/:slug?', {
      * @return {void}
      */
     action: function(params, queryParams) {
-      FlowLayout.render("DefaultLayout", {
-          view: "BlogPostView",
-          id: params.id
-      });
+      Atomic.setTitle("Blog");
+      FlowLayout.render("DefaultLayout", {view: "BlogView"});
     }
 });

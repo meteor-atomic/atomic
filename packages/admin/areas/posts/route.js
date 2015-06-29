@@ -12,9 +12,7 @@ AdminRouter.route("/posts", {
    * Susbscriptions
    */
   subscriptions: function(params, queryParams) {
-    this.register("posts", Posts.subscription({admin:true}, function(err){
-      if(err) Notify.exception(err);
-    }));
+    this.register("admin.posts", Meteor.subscribe("admin.posts"));
   },
 
   /**

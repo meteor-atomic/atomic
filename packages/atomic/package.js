@@ -23,7 +23,7 @@ Package.onUse(function(api) {
   api.addFiles("client/helpers.js",         ["client"]);
 
   // Add the trackers
-  api.addFiles("client/trackers/title.js",  ["client"])
+  api.addFiles("client/trackers/title.js",  ["client"]);
 
   // Export
   api.export("Atomic");

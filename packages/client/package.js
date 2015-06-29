@@ -13,11 +13,13 @@ Package.onUse(function(api) {
   api.use("atomic:accounts");
   api.use("atomic:categories");
   api.use("atomic:posts");
+  api.use("atomic:comments");
   api.use("atomic:router");
   api.use("atomic:i18n");
   api.use("atomic:notify");
   api.use("atomic:accounts");
   api.use("atomic:rss");
+  api.use("atomic:router");
 
   // Templating
   api.use("templating", "client");
@@ -34,6 +36,9 @@ Package.onUse(function(api) {
    */
   api.addFiles("en.i18n.json",  "client");
 
+  // Add the publications for the blog
+  api.addFiles("publications.js",                           "server");
+
   /**
    * Load the client application.
    */
@@ -46,8 +51,11 @@ Package.onUse(function(api) {
   api.addFiles("client/sections/header/header.js",          "client");
   api.addFiles("client/components/comments/comments.jade",  "client");
   api.addFiles("client/components/breadcrumbs/breadcrumbs.jade", "client");
+  api.addFiles("client/index.js",                           "client");
   api.addFiles("client/views/blog/blog.jade",               "client");
   api.addFiles("client/views/blog/blog.js",                 "client");
+  api.addFiles("client/views/blog/route.js",                "client");
   api.addFiles("client/views/blog_post/blog_post.jade",     "client");
   api.addFiles("client/views/blog_post/blog_post.js",       "client");
+  api.addFiles("client/views/blog_post/route.js",           "client");
 });

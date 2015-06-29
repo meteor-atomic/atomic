@@ -1,30 +1,29 @@
 /**
  * Doashbaord Route
  */
-AdminRouter.route("/posts/edit/:id", {
+AdminRouter.route("/users/", {
   /**
    * Dashbaord name
    * @type {String}
    */
-  name: "admin.posts.edit",
+  name: "admin.users",
 
   /**
    * Susbscriptions
    */
   subscriptions: function(params, queryParams) {
-    this.register("admin.post", Meteor.subscribe("admin.post", params.id));
+    this.register("users", Users.subscription({admin: true}));
   },
 
   /**
    */
   action: function(params, queryParams) {
     // Set the page title
-    Atomic.setTitle("Edit " + Atomic.seperator + " Posts");
+    Atomic.setTitle("Users");
 
     // Render the view
     FlowLayout.render("DefaultAdminLayout", {
-      view: "AdminPostEditView",
-      id: params.id
+      view: "AdminUsersView"
     });
   }
 })

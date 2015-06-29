@@ -16,6 +16,20 @@ Settings.collection._ensureIndex({"key" : 1}, {unique: true});
  * Extend the settings with client side functions
  */
 _.extend(Settings, {
+  /**
+   * Return all setttings
+   */
+  all: function(callback) {
+    return Settings.collection.find({}, {}, callback)
+  },
+
+  /**
+   * Return all setttings
+   */
+  public: function(callback) {
+    return Settings.collection.find({public: true}, {}, callback);
+  },
+
 	/**
 	 * Fetch a setting
 	 */
@@ -40,3 +54,8 @@ _.extend(Settings, {
  * Only allow admin to create and update
  */
 Settings.collection.permit(['insert', 'update', 'remove']).ifHasRole('admin').apply();
+
+/**
+ * Add public settings to the client
+ */
+// __meteor_runtime_config__.__settings = Settings.public();

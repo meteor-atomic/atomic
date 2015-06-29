@@ -24,9 +24,9 @@ ServiceConfiguration.configurations.insert({
 var category = Categories.create("Uncategorised", "Default category");
 
 /**
- * Add some posts
+ * Add some posts (1)
  */
-for (var i = 10; i >= 0; i--) {
+for (var i = 1; i > 0; i--) {
 	Posts.create({
 	  title: 'Meteor 0.4.1: Sending email and Node 0.8',
 	  summary: "We are hard at work polishing up Meteor Accounts, our full-featured auth system that supports login with Facebook and Google, or with secure passwords. Many Meteor developers are already using it on our pre-release [`auth`](https://github.com/meteor/meteor/tree/auth) branch and contributing code: we've merged pull requests for Twitter and Weibo login services, with more on the way.",

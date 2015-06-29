@@ -1,0 +1,30 @@
+template(name="AdminCommentsView")
+  h2.ui.header
+    i.pencil.icon
+    .content Users
+  table(class="ui table")
+    thead
+      tr
+        th
+          input(type="checkbox", class="ui small checkbox checkall")
+        th Name
+        th Role
+        th Registration Date
+        th Verified
+        th Comments
+    tbody
+      +each users
+        tr
+          td
+            input(type="checkbox", class="ui small checkbox")
+          td
+            a(href="{{pathFor 'admin.comments.view' id=this._id}}") ??
+          td {{author_id}}
+          td ??
+          td ??
+          td {{created}}
+            +if spam
+              i.large.red.warning.icon
+            +else
+              i.large.green.checkmark.icon
+    tfoot

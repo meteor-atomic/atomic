@@ -13,6 +13,7 @@ Package.onUse(function(api) {
 
   // Internal
   api.use("atomic:accounts");
+  api.use("atomic:users");
   api.use("atomic:utilities");
   api.use("atomic:categories");
   api.use("atomic:security");

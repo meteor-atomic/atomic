@@ -4,9 +4,7 @@ FlowLayout.setRoot('body');
 /**
  * Global subscriptions
  */
-Router.subscriptions = function() {
-  this.register("settings", Settings.subscription());
-}
+Router.subscriptions = function() {}
 
 /**
  * 404 page configuration
@@ -14,7 +12,7 @@ Router.subscriptions = function() {
  */
 Router.notFound = {
   action: function() {
-    Atomic.setTile("404 Not Found!");
+    Atomic.setTitle("404 Not Found!");
     FlowLayout.render("DefaultLayout",  {
       view: "404View"
     })

@@ -9,14 +9,12 @@ var View = Template.AdminCategoryPickerSegment;
  */
 View.created = function() {
   // Subscribe to all categories
-  this.subscribe("categories", Categories.subscription());
+  this.subscribe("categories", Meteor.subscribe("admin.categories"));
 
   // If this category picker has an post id, automatically
   // pre-populate and update the posts
   if(this.data.id) {
-    this.subscribe("post",
-      Posts.subscription({admin: true, query: {_id: this.data.id}})
-    );
+    this.subscribe("admin.post", Meteor.subscribe("admin.post", this.data.id))
   }
 }
 
