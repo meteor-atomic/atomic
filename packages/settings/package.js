@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.use("mongo",                    ["server"]);
 
   // Data Security
-  api.use("atomic:security",            ["server"]);
+  api.use("atomic:security",          ["server"]);
 
   // Settings files
   api.addFiles('namespace.js',        ["server", "client"]);

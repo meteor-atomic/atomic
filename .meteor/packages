@@ -11,3 +11,4 @@ atomic:admin
 atomic:installation
 atomic:askimet
 accounts-base
+# atomic:packages
