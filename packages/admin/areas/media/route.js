@@ -21,7 +21,7 @@ AdminRouter.route("/media", {
     Atomic.setTitle("Media");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminMediaView"
     });
   }

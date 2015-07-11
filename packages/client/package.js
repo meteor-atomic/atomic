@@ -20,6 +20,7 @@ Package.onUse(function(api) {
   api.use("atomic:accounts");
   api.use("atomic:rss");
   api.use("atomic:router");
+  api.use("atomic:layout");
 
   // Templating
   api.use("templating", "client");

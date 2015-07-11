@@ -17,7 +17,7 @@ AdminRouter.route("/settings/general", {
     Atomic.setTitle("General " + Atomic.seperator + " Settings");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminSettingsGeneralView"
     });
   }

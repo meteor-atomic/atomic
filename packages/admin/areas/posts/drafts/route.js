@@ -19,7 +19,7 @@ AdminRouter.route("/posts/drafts", {
     Atomic.setTitle("Drafts " + Atomic.seperator + " Posts");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminPostDraftsView"
     });
   }

@@ -22,7 +22,7 @@ AdminRouter.route("/posts", {
     Atomic.setTitle("Posts");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminPostsView"
     });
   }

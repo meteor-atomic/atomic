@@ -27,7 +27,7 @@ Router.route('/blog/:id/:slug?', {
      * @return {void}
      */
     action: function(params, queryParams) {
-      FlowLayout.render("DefaultLayout", {
+      Layout.render("DefaultLayout", {
           view: "BlogPostView",
           id: params.id
       });

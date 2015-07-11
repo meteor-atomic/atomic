@@ -22,7 +22,7 @@ AdminRouter.route("/comments/", {
     Atomic.setTitle("Comments");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminCommentsView"
     });
   }

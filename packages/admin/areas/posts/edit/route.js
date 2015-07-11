@@ -22,7 +22,7 @@ AdminRouter.route("/posts/edit/:id", {
     Atomic.setTitle("Edit " + Atomic.seperator + " Posts");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminPostEditView",
       id: params.id
     });

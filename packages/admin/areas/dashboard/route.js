@@ -15,7 +15,7 @@ AdminRouter.route("/dashboard", {
     Atomic.setTitle("Dashboard");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminDashboardView"
     });
   }

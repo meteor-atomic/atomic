@@ -22,7 +22,7 @@ AdminRouter.route("/categories", {
     Atomic.setTitle("Categories");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminCategoriesView"
     });
   }

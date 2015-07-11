@@ -22,7 +22,7 @@ AdminRouter.route("/users/", {
     Atomic.setTitle("Users");
 
     // Render the view
-    FlowLayout.render("DefaultAdminLayout", {
+    Layout.render("DefaultAdminLayout", {
       view: "AdminUsersView"
     });
   }

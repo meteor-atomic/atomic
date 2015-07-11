@@ -29,6 +29,6 @@ Router.route('/blog', {
      */
     action: function(params, queryParams) {
       Atomic.setTitle("Blog");
-      FlowLayout.render("DefaultLayout", {view: "BlogView"});
+      Layout.render("DefaultLayout", {view: "BlogView"});
     }
 });
