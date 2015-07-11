@@ -20,6 +20,7 @@ Package.onUse(function(api) {
    */
   api.use("atomic:atomic",                              "client");
   api.use("atomic:router",                              "client");
+  api.use("atomic:layout",                              "client");
   api.use("atomic:settings",                            "client");
   api.use("atomic:i18n",                                "client");
   api.use("atomic:editor",                              "client");

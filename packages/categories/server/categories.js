@@ -15,10 +15,3 @@ _.extend(Categories, {
 
 // Category permissions
 Categories.collection.permit(['insert', 'remove', 'update']).ifHasRole(['admin']).apply();
-
-/**
- * Publish the categories
- */
-Meteor.publish("categories", function() {
-	return Categories.collection.find({});
-})

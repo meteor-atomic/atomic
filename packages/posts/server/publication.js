@@ -1,5 +1,7 @@
 /**
  * Posts publication
+ * @param  {Object}  Publication Options
+ * @return {Cursor}
  */
 Meteor.publish("posts", function(options) {
   options = options || {};

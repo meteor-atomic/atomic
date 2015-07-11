@@ -19,6 +19,7 @@ Package.onUse(function(api) {
   api.addFiles('common/categories.js',  ['server', 'client']);
   api.addFiles('common/schema.js',      ['server', 'client']);
   api.addFiles('server/categories.js',  ["server"]);
+  api.addFiles('server/publish.js',     ["server"]);
   api.addFiles('client/categories.js',  ["client"]);
 
   api.export("Categories");

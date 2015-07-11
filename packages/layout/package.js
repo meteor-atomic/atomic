@@ -13,7 +13,8 @@ Package.onUse(function(api) {
   api.use("meteorhacks:flow-layout@1.4.0", "client");
 
   // Files
-  api.addFiles('namespace.js', "client");
+  api.addFiles('namespace.js',  "client");
+  api.addFiles('setup.js',      "client");
 
   // Export the layout
   api.export("Layout")

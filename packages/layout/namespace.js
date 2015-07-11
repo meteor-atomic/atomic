@@ -5,8 +5,3 @@
  * @namespace Layout
  */
 Layout = FlowLayout;
-
-/**
- * Make sure that the root of the the F
- */
-Layout.setRoot('body');
